@@ -9,6 +9,7 @@ from django.db import models
 
 from config import settings
 from .utils import unique_slugify
+from ..utils import validate_instance_file_name
 
 
 class TimeStampModel(models.Model):
