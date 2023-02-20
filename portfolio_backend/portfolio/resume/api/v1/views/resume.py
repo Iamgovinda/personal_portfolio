@@ -23,12 +23,9 @@ class ResumeViewSet(ListAPIView):
             {
                 'education': EducationSerializer(education_queryset, many=True).data,
                 'experience': ExperienceSerializer(experience_queryset, many=True).data,
-                'certificate': CertificateSerializer(certificate_queryset, many=True).data,
+                'certificate': CertificateSerializer(certificate_queryset, many=True,
+                                                     context={'request': self.request}).data,
                 'design_skills': SkillSerializer(design_queryset, many=True).data,
                 'coding_skills': SkillSerializer(coding_queryset, many=True).data,
             }
         )
-
-
-
-

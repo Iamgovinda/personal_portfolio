@@ -1,5 +1,6 @@
 from rest_framework import serializers
 
+from portfolio.commons.api.v1.serializers.file_upload import FileUploadSerializer
 from portfolio.commons.serializers import DynamicFieldsModelSerializer
 from portfolio.resume.constant import DESIGN, CODING
 from portfolio.resume.models import Education, Experience, Certificate, Skill, Resume
@@ -20,7 +21,14 @@ class ExperienceSerializer(DynamicFieldsModelSerializer):
 class CertificateSerializer(DynamicFieldsModelSerializer):
     class Meta:
         model = Certificate
-        fields = ['name', 'certificate_id', 'certification_date', 'agency']
+        fields = ['name', 'certificate_id', 'certification_date', 'agency', 'link', 'image']
+
+    def get_fields(self):
+        fields = super(CertificateSerializer, self).get_fields()
+        request = self.context.get('request')
+        if request and request.method.lower() in ['get']:
+            fields['image'] = FileUploadSerializer()
+        return fields
 
 
 class SkillSerializer(DynamicFieldsModelSerializer):
