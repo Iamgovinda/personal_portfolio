@@ -1,0 +1,7 @@
+DESIGN = 'DESIGN'
+CODING = 'CODING'
+
+SKILL_TYPE = (
+    (DESIGN, 'DESIGN'),
+    (CODING, 'CODING')
+)

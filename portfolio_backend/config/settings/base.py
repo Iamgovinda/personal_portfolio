@@ -21,7 +21,8 @@ INSTALLED_APPS = [
 
     # LOCAL APPS
     'portfolio.commons',
-    'portfolio.user'
+    'portfolio.user',
+    'portfolio.resume'
 ]
 
 MIDDLEWARE = [
