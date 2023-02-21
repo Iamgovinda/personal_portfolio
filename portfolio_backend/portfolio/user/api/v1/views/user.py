@@ -16,6 +16,7 @@ class UserAboutViewSet(ListCreateUpdateRetrieveViewSetMixin):
     queryset = UserAbout.objects.all()
     serializer_class = UserAboutSerializer
 
+
 class WhatIDoViewSet(ListCreateUpdateRetrieveViewSetMixin):
     lookup_field = 'uuid'
     lookup_url_kwarg = 'uuid'

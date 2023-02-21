@@ -16,8 +16,8 @@ class ResumeViewSet(ListAPIView):
         education_queryset = Education.objects.all()
         experience_queryset = Experience.objects.all()
         certificate_queryset = Certificate.objects.all()
-        design_queryset = Skill.objects.filter(type=DESIGN)
-        coding_queryset = Skill.objects.filter(type=CODING)
+        design_queryset = Skill.objects.all()
+        # coding_queryset = Skill.objects.filter(type=CODING)
 
         return Response(
             {
@@ -25,7 +25,7 @@ class ResumeViewSet(ListAPIView):
                 'experience': ExperienceSerializer(experience_queryset, many=True).data,
                 'certificate': CertificateSerializer(certificate_queryset, many=True,
                                                      context={'request': self.request}).data,
-                'design_skills': SkillSerializer(design_queryset, many=True).data,
-                'coding_skills': SkillSerializer(coding_queryset, many=True).data,
+                'skills': SkillSerializer(design_queryset, many=True).data,
+                # 'coding_skills': SkillSerializer(coding_queryset, many=True).data,
             }
         )

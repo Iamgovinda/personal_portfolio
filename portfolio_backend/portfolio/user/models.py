@@ -1,4 +1,6 @@
 from django.db import models
+from django.core.validators import MinValueValidator, MaxValueValidator
+
 
 # Create your models here.
 from portfolio.commons.models import UUIDBaseModel, FileUpload
@@ -12,6 +14,10 @@ class UserInfo(UUIDBaseModel):
     happy_client = models.PositiveIntegerField(null=True, blank=True)
     main_image = models.OneToOneField(FileUpload, related_name='main_img_user_info', on_delete=models.CASCADE,
                                       null=True, blank=True)
+    address = models.CharField(max_length=200, null=True, blank=True)
+    email = models.EmailField(max_length=200, null=True, blank=True)
+    phone = models.CharField(max_length=14)
+
 
     def __str__(self):
         return self.name

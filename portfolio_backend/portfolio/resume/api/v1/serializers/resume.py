@@ -9,13 +9,13 @@ from portfolio.resume.models import Education, Experience, Certificate, Skill, R
 class EducationSerializer(DynamicFieldsModelSerializer):
     class Meta:
         model = Education
-        fields = ['institute_name', 'start_date', 'end_date', 'description']
+        fields = ['title', 'institute_name', 'start_date', 'end_date', 'description']
 
 
 class ExperienceSerializer(DynamicFieldsModelSerializer):
     class Meta:
         model = Experience
-        fields = ['company_name', 'start_date', 'end_date', 'description']
+        fields = ['title', 'company_name', 'start_date', 'end_date', 'description']
 
 
 class CertificateSerializer(DynamicFieldsModelSerializer):
@@ -34,7 +34,7 @@ class CertificateSerializer(DynamicFieldsModelSerializer):
 class SkillSerializer(DynamicFieldsModelSerializer):
     class Meta:
         model = Skill
-        fields = ['title', 'skill_rate', 'type']
+        fields = ['title', 'skill_rate']
 
 
 class ResumeSerializer(serializers.Serializer):

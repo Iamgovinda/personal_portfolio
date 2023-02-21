@@ -1,5 +1,6 @@
 from rest_framework import serializers
 
+from portfolio.commons.api.v1.serializers.file_upload import FileUploadSerializer
 from portfolio.commons.serializers import DynamicFieldsModelSerializer
 from portfolio.user.models import UserInfo, UserAbout, SocialMedia, WhatIDoItem, WhatIDo
 
@@ -7,7 +8,15 @@ from portfolio.user.models import UserInfo, UserAbout, SocialMedia, WhatIDoItem,
 class UserInfoSerializer(DynamicFieldsModelSerializer):
     class Meta:
         model = UserInfo
-        fields = "__all__"
+        fields = ['name', 'description', 'experience', 'project_completed', 'happy_client', 'main_image', 'address',
+                  'email', 'phone']
+
+    def get_fields(self):
+        fields = super(UserInfoSerializer, self).get_fields()
+        request = self.context.get('request')
+        if request and request.method.lower() in ['get']:
+            fields['main_image'] = FileUploadSerializer()
+        return fields
 
 
 class SocialMediaSerializer(DynamicFieldsModelSerializer):
@@ -26,11 +35,13 @@ class UserAboutSerializer(DynamicFieldsModelSerializer):
         request = self.context.get('request')
         if request and request.method.lower() == 'get':
             fields['social_links'] = serializers.SerializerMethodField()
+            fields['image'] = FileUploadSerializer()
         return fields
 
     def get_social_links(self, obj):
         social_media_queryset = SocialMedia.objects.all()
-        return SocialMediaSerializer(social_media_queryset, many=True).data
+        datas = SocialMediaSerializer(social_media_queryset, many=True).data
+        return {f'{data["name"]}': f'{data["link"]}' for data in datas}
 
 
 class WhatIDoItemSerializer(DynamicFieldsModelSerializer):
