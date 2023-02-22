@@ -1,0 +1,59 @@
+// .container-div{
+//     // background-image: linear-gradient(#DA4DF1, #C4F5E9);
+//     z-index: -1;
+// }
+.parent {
+  position: relative;
+  overflow-x: hidden;
+}
+.blur {
+  width: 45rem;
+  height: 15rem;
+  position: absolute !important;
+  top: 0;
+  right: 0;
+  background-image: linear-gradient(#dd00ff66, white);
+  border-radius: 50%;
+  z-index: -1;
+  filter: blur(100px);
+}
+
+.blur2{
+    width: 15rem;
+    height: 50rem;
+    position: absolute !important;
+    top: 25rem;
+    right: 0;
+    background-image: linear-gradient(#C4F5E9, white);
+    border-radius: 50%;
+    z-index: -1;
+    filter: blur(100px);
+}
+
+.blur2{
+    width: 15rem;
+    height: 55rem;
+    position: absolute !important;
+    top: 20rem;
+    right: 0;
+    background-image: linear-gradient(#C4F5E9, white);
+    border-radius: 50%;
+    z-index: -1;
+    filter: blur(100px);
+}
+
+.blur3{
+    width: 25rem;
+    height: 10rem;
+    position: absolute !important;
+    bottom: 0;
+    left: 0;
+    background-color: #FFDFA8;
+    border-radius: 50%;
+    z-index: -1;
+    filter: blur(62px);
+}
+
+.bottom-divs{
+  position: relative;
+}

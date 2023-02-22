@@ -1,0 +1,133 @@
+.text-1 {
+  font-family: "Work Sans";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 72px;
+  line-height: 84px;
+  color: #132238;
+  max-width: 578px;
+}
+.parent {
+  margin: 1rem 0 10rem 0;
+}
+.text-2 {
+  font-family: "Work Sans";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 24px;
+  color: #556070;
+}
+
+.user-img {
+  max-width: 500px;
+  width: 100%;
+  height: auto;
+  border-radius: 1rem;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+.user-img {
+  animation: slide-right-to-left 1s forwards;
+}
+
+@keyframes slide-right-to-left {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0%);
+  }
+}
+.user-data {
+  display: flex;
+  gap: 5px;
+  align-items: center;
+}
+.user-data-common {
+  background-color: rgba(237, 216, 255, 0.5);
+  text-align: center;
+  width: 10rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  max-height: 80px;
+  overflow: hidden;
+  padding: 16px;
+}
+
+.left {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 0 !important;
+  gap: 2.5rem;
+}
+
+.user-common-text {
+  font-family: "Work Sans";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 1rem;
+  text-align: center;
+  color: #424e60;
+  margin: 0;
+}
+
+.user-text {
+  font-family: "Work Sans";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 1rem;
+  text-align: center;
+  color: #697484;
+  margin: 0;
+}
+
+
+@media screen and (max-width:768px){
+  .user-common-text{
+    font-size: 1rem;
+  }
+  .user-text{
+    font-size: 0.5rem;
+  }
+  .left{
+    gap: 1.5rem;
+  }
+  .text-1{
+    font-size: 2rem;
+  }
+  .user-img{
+    width: 90%;
+    margin-left: 1.5  rem; 
+  }
+}
+
+@media screen and (max-width:1024px){
+  .user-common-text{
+    font-size: 1rem;
+  }
+  .user-text{
+    font-size: 1rem;
+  }
+  .left{
+    gap: 1.5rem;
+  }
+  .user-data{
+    padding: 0 !important;
+  }
+  .user-img{
+    margin-top: 5rem;
+    padding: 0 !important;
+    margin-left: 20px !important;
+    width: 100%;
+  }
+  .col-right{
+    padding: 0 !important;
+  }
+
+
+
+}

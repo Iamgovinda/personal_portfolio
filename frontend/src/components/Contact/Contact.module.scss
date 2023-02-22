@@ -1,0 +1,127 @@
+.contact-parent {
+  padding: 5rem;
+  background: #ffffff;
+  box-shadow: 0px 59px 124px rgba(0, 0, 0, 0.12);
+  border-radius: 15px;
+  position: relative;
+  top: 5rem;
+
+}
+.text-1 {
+  font-family: "Work Sans";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 48px;
+  line-height: 56px;
+  color: #333333;
+}
+.text-2 {
+  font-family: "Work Sans";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 24px;
+  color: #87909d;
+  margin-bottom: 3rem;
+}
+
+.input-box {
+  border: none !important;
+  border-bottom: 1px solid black !important;
+  border-radius: 0px !important;
+  padding-left: 5px;
+  margin-bottom: 1.5rem !important;
+}
+
+.input-box:hover {
+  color: #a53dff;
+  border-bottom: 1px solid #a53dff !important;
+}
+.input-box::placeholder:hover,
+.input-box:-ms-input-placeholder:hover {
+  color: #a53dff !important;
+}
+
+.input-btn,
+.input-btn:hover,
+.input-btn:active {
+  font-family: "Work Sans";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 24px;
+  color: #ffffff;
+  background-color: #a53dff;
+  border-radius: 4px;
+  border: none;
+}
+
+.info-box {
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+  padding: 24px;
+}
+.info-box:hover {
+  box-shadow: 0px 12px 64px rgba(28, 25, 25, 0.12);
+  border-radius: 10px;
+  .info-icon {
+    background-color: #a53dff;
+  }
+}
+.info-icon {
+  height: 3rem;
+  width: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #a53dff;
+  border-radius: 4px;
+}
+
+.info-text-1 {
+  font-family: "Work Sans";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  display: flex;
+  align-items: flex-end;
+  color: #424e60;
+  margin: 0 !important;
+}
+.info-text-2 {
+  font-family: "Work Sans";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  display: flex;
+  align-items: flex-end;
+  color: #132238;
+  margin: 0 !important;
+}
+
+.connections {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.connections-icon-box {
+  background-color: red($color: #000000);
+  height: 3rem;
+  width: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+}
+.icons {
+  color: #a53dff;
+  font-size: 1.5rem;
+}
+.connections-icon-box:hover {
+  background-color: #a53dff;
+  .icons {
+    color: white;
+  }
+}

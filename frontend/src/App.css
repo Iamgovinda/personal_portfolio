@@ -1,0 +1,74 @@
+:root {
+  --bs_bgblack: #132238;
+  --white: #fff;
+  --a53dff: #a53dff;
+  --light_cyan: #61dafb;
+  --dark_sub_grey: #808080;
+  --gainsboro: #e1e1e1;
+  --dark_blue: #373d57;
+  --gray95: #f2f2f2;
+  --orange: #ffbc96;
+  --light_white:#F9F9F9;
+
+  --primary: #a53dff;
+  --secondary: #F0F1F3; 
+  --ternary: #2B384C;
+  --font-headings: #132238;
+  --font-secondary: #87909D;
+  --background: #F0F1F3;
+  --font-family: "Work Sans";
+
+
+}
+.app-container {
+  font-family: 'Work Sans';
+  width: 100%;
+}
+.App {
+  text-align: center;
+  font-family: 'Work Sans';
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: var(--light_cyan);
+}
+
+.mainlogo {
+  margin-left: 2%;
+  margin-top: 1%;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+html body {
+  font-family: "Lora", sans-serif;
+}

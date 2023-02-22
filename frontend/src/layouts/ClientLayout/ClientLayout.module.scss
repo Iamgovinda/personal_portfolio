@@ -1,0 +1,52 @@
+
+// .after {
+//     display: block;
+//     position: absolute;
+//     content: "";
+//     width: 30px;
+//     background-color: #007ced;
+//     height: 2px;
+//     bottom: 0;
+//   }
+//   .before {
+//     display: block;
+//     position: absolute;
+//     content: "";
+//     width: 100%;
+//     background-color: #353535;
+//     height: 2px;
+//     bottom: 0;
+//   }
+
+//   .happy-client-title{
+//     text-align: left;
+//     font-family: var(--font-family);
+//     font-style: normal;
+//     font-weight: 600;
+//     font-size: 1.5rem;
+//     color: var(--font-headings);
+//     display: inline-block;
+//     position: relative;
+//     margin: 0 0 30px;
+//     z-index: 1;
+// }
+//   .happy-client-title::after {
+//     @extend .after;
+//   }
+//   .happy-client-title::before {
+//     @extend .before;
+//   }
+.happy-client-title{
+  color: #132238;
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+  text-align: center;
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 2rem;
+  line-height: 56px;
+  margin-bottom: 10px;
+
+}

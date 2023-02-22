@@ -1,0 +1,48 @@
+.footer-main {
+  background-color: #2b384c;
+  color: white;
+  height: 330px;
+  display: flex;
+  align-items: flex-end;
+
+}
+.middle-content {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  p {
+    margin: 0px !important;
+  }
+}
+
+.icon {
+  background-color: #a53dff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  height: 3.5rem;
+  width: 3.5rem;
+}
+
+.first-content {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.row-main {
+  display: flex;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+.last-content {
+  margin: 0px !important;
+}
+.user-name {
+  font-family: "Work Sans";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 32px;
+  line-height: 40px;
+  color: #ffffff;
+}

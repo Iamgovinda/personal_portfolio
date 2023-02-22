@@ -1,0 +1,68 @@
+.t-item{
+    padding: 1.9rem;
+    margin-bottom: 10px;
+    cursor: grab;
+}
+.t-content{
+    position: relative;
+    padding: 30px 20px 20px 60px;
+    background-color: var(--background);
+    border-radius: 8px;
+    border: 2px solid #444;
+}
+.t-picture-box{
+    position: absolute;
+    display: block;
+    top: -30px;
+    left: -30px;
+    width: 80px;
+    height: 80px;
+}
+.t-picture{
+    width: 5rem;
+    height: 5rem;
+    border-radius: 50%;
+}
+.t-text{
+    p{
+        font-style: italic;
+        font-size: 1rem;
+        color: var(--font-secondary);
+        margin: 0 0 10px;
+        font-weight: bold;
+    }
+}
+
+.t-author-info{
+    margin-top: 1rem;
+}
+
+.t-author{
+    font-family: sans-serif !important;
+    font-weight: 700 !important;
+    font-style: normal !important;
+    font-size: 0.8rem !important;
+    font-weight: bold;
+    margin: 0px !important;
+}
+.t-author-firm{
+    margin: 0;
+    font-size: .8em;
+    color: var(--font-secondary);
+
+}
+.quote-icon-box{
+    position: absolute;
+    bottom: -2.4rem;
+    right: -2.5rem;
+    z-index: -1;
+}
+.quote-icon{
+    font-size: 5rem;
+    color: gray;
+}
+@media screen and (max-width:768px) {
+    .t-content{
+        padding: 20px 15px 15px 50px;
+    }
+}

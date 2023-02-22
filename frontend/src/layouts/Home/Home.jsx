@@ -1,0 +1,85 @@
+import React from "react";
+import UserInfo1 from "../../components/UserInfo/UserInfo1";
+// import { Container } from 'react-bootstrap';
+import styles from "./Home.module.scss";
+import WhatIDo from "../WhatIDo/WhatIDo";
+import Resume from "../Resume/Resume";
+// import Testimonial from "../../components/Testimonial/Testimonial";
+import TestimonialLayout from "../Testimonial/TestimonialLayout";
+import ClientLayout from "../ClientLayout/ClientLayout";
+import BlogLayout from "../Blog/Blog";
+import Contact from "../../components/Contact/Contact";
+import Footer from "../../components/Footer/Footer";
+import { useState } from "react";
+import { useEffect } from "react";
+import { get } from "../../API/axios";
+const Home = () => {
+  const [isLoading, setIsLoading] = useState(true);
+  // const [Error, isError] = useState(false);
+  const [userAbout, setUserAbout] = useState([]);
+  const [userInfo, setUserInfo] = useState([]);
+  const [resume, setResume] = useState([]);
+  const [testimonial, setTestimonial] = useState([]);
+  const [client, setClient] = useState([]);
+
+
+
+  useEffect(()=>{
+    if(isLoading){
+      get(`/user/about/`).then((response)=>{
+        if(response.status===200){
+          setUserAbout(response.data.results);
+          setIsLoading(false);
+        }
+      })
+      get(`/user/`).then((response)=>{
+        if(response.status===200){
+          setUserInfo(response.data.results);
+          setIsLoading(false);
+        }
+      })
+      get(`/resume/`).then((response)=>{
+        if(response.status===200){
+          console.log("Resume: ",response.data);
+          setResume(response.data);
+          setIsLoading(false);
+        }
+      })
+
+      get(`/testimonial/`).then((response)=>{
+        if(response.status===200){
+          setTestimonial(response.data.results);
+          setIsLoading(false);
+        }
+      })
+
+      get(`/client/`).then((response)=>{
+        if(response.status===200){
+          setClient(response.data.results);
+          setIsLoading(false);
+        }
+      })
+    }
+  }, [isLoading, userAbout, userInfo])
+  return (
+    <>
+      <div className={styles["parent"]}>
+        <UserInfo1 data={userInfo} about={userAbout}/>
+        <div className={styles["blur"]}></div>
+        <div className={styles["blur2"]}></div>
+        <div className={styles["blur3"]}></div>
+      </div>
+      <WhatIDo />
+      <Resume data={resume}/>
+      <BlogLayout />
+      <TestimonialLayout data={testimonial}/>
+      {
+      client && <ClientLayout data={client}/>
+      }
+      <Contact data={userInfo} about={userAbout}/>
+      <Footer />
+    </>
+  );
+};
+
+export default Home;
