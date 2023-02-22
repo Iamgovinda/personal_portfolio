@@ -1,0 +1,25 @@
+.sidebar-col{
+    height: 100vh;
+    background-color: #ced4da;
+    padding-right: 0px !important;
+    border-right: 1px solid gray;
+}
+.menu{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: rgb(25, 114, 84);
+    padding: 0.7rem;
+    cursor: pointer;
+}
+
+.menu-name{
+    font-weight: 700;
+    font-size: 1.5rem;
+    margin: 0px !important;
+    font-family: poppins;
+}
+.right-div{
+    background-color: white;
+    padding: 2rem;
+}
