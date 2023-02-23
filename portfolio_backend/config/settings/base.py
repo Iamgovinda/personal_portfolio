@@ -26,7 +26,8 @@ INSTALLED_APPS = [
     'portfolio.resume',
     'portfolio.testimonial',
     'portfolio.client',
-    'portfolio.contact'
+    'portfolio.contact',
+    'portfolio.Blog'
 ]
 
 MIDDLEWARE = [
@@ -98,8 +99,8 @@ USE_TZ = True
 STATIC_URL = 'static/'
 MEDIA_URL = 'media/'
 
-STATIC_ROOT = os.path.join(ROOT_DIR, 'static')
-MEDIA_ROOT = os.path.join(ROOT_DIR, 'media')
+STATIC_ROOT = os.path.join(PROJECT_DIR, 'static')
+MEDIA_ROOT = os.path.join(PROJECT_DIR, 'media')
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field

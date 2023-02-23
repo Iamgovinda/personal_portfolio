@@ -10,6 +10,7 @@ urlpatterns = [
     path('resume/', include('portfolio.resume.api.v1.urls')),
     path('testimonial/', include('portfolio.testimonial.api.v1.urls')),
     path('client/', include('portfolio.client.api.v1.urls')),
-    path('contact/', include('portfolio.contact.api.v1.urls'))
+    path('contact/', include('portfolio.contact.api.v1.urls')),
+    path('blog/', include('portfolio.Blog.api.v1.urls'))
 
 ]
