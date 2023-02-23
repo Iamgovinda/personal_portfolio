@@ -6,7 +6,7 @@ import React from 'react'
 const NavigationBar = () => {
   return (
     <>
-      <Navbar bg='light' style={{borderBottom:'1px solid gray'}}>
+      <Navbar bg='light' style={{borderBottom:'1px solid gray'}} fixed="top">
         <Container fluid>
           <Navbar.Brand href="#home">Admin Panel</Navbar.Brand>
           <Navbar.Toggle />
