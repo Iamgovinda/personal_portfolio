@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState, useEffect } from 'react';
 import Slider from 'react-slick';
 
 import { Container } from 'react-bootstrap';
@@ -6,15 +6,26 @@ import styles from './BlogLayout.module.scss';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import BlogCard from '../../components/BlogCard/BlogCard';
-
+import {get} from '../../API/axios';
 
 
 const BlogLayout = () => {
+    const [blog, setBlog] = useState();
+    const [isLoading, setIsLoading] = useState(true);
+    useEffect(()=>{
+        if(isLoading){
+            get(`/blog/`).then((response)=>{
+                if(response.status===200){
+                    setBlog(response.data?.results);
+                }
+            })
+        }
+    }, [isLoading])
     const settings = {
         dots: true,
         infinite: true,
         speed: 250,
-        slidesToShow: 4,
+        slidesToShow: 2,
         slidesToScroll: 1,
         initialSlide: 0,
         responsive: [
@@ -49,10 +60,10 @@ const BlogLayout = () => {
             <div className={styles['blog-title']}>Blog</div>
             <Slider {...settings}>
                 {
-                    [1,2,3,4,5,6,7,8,9].map((item) => {
+                    blog?.map((item, index) => {
                         return (
                             <>
-                                <BlogCard />
+                                <BlogCard key={index} data={item}/>
                             </>
                         )
                     })

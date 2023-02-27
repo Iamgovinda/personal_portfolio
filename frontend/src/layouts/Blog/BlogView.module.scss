@@ -1,0 +1,15 @@
+.top{
+    margin-top: 1rem;
+}
+.container{
+    background-color: gray;
+    padding: 3rem;
+    border-radius: 1rem;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+}
+.blog-info{
+    margin: 0 !important;
+}

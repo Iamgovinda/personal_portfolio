@@ -77,7 +77,6 @@ const Home = () => {
       client && <ClientLayout data={client}/>
       }
       <Contact data={userInfo} about={userAbout}/>
-      <Footer />
     </>
   );
 };
