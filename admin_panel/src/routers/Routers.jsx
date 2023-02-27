@@ -8,8 +8,8 @@ const Routers = () => {
     <MasterLayer>
         <Routes>
             <Route path='' element={<Home />} />
-            <Route path='add-new-blog/' element={<AddBlog/>} />
-
+            <Route path='add-new-blog/:uuid' element={<AddBlog/>} />
+            <Route path='edit-blog/:uuid' element={<AddBlog/>} />
         </Routes>
     </MasterLayer>
   )

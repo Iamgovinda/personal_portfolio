@@ -36,6 +36,17 @@ export const patch = (url, data) => {
   }
 };
 
+export const remove = (url) =>{
+  try{
+    return axios.delete(url).then((response)=>{
+      return response;
+    })
+  }
+  catch(error){
+    return error;
+  }
+}
+
 export const loginPOST = (url, data) => {
   return axios.post(config.apiURL + url, data);
 };
