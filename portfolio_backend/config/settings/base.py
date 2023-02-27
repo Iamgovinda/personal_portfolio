@@ -19,6 +19,7 @@ INSTALLED_APPS = [
     'rest_framework_swagger',
     'cuser',
     'corsheaders',
+'rest_framework.authtoken',
 
     # LOCAL APPS
     'portfolio.commons',

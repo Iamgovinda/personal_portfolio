@@ -1,4 +1,5 @@
-from rest_framework.generics import GenericAPIView, ListAPIView
+from rest_framework.generics import ListAPIView
+from rest_framework.views import APIView
 from rest_framework.response import Response
 
 from portfolio.resume.api.v1.serializers.resume import ResumeSerializer, EducationSerializer, ExperienceSerializer, \
@@ -7,12 +8,12 @@ from portfolio.resume.constant import DESIGN, CODING
 from portfolio.resume.models import Education, Experience, Certificate, Skill
 
 
-class ResumeViewSet(ListAPIView):
+class ResumeViewSet(APIView):
     lookup_field = 'uuid'
     lookup_url_kwarg = 'uuid'
-    serializer_class = ResumeSerializer
 
-    def list(self, request, *args, **kwargs):
+    # serializer_class = ResumeSerializer
+    def get(self, request, *args, **kwargs):
         education_queryset = Education.objects.all()
         experience_queryset = Experience.objects.all()
         certificate_queryset = Certificate.objects.all()
