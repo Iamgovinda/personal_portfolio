@@ -8,17 +8,13 @@ import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 import styles from "./BlogList.module.scss";
 import { get, remove } from "../../API/axios";
-import BasicPopover from "../Modal/PopOver";
 import AddCircleOutlineIcon from "@mui/icons-material/AddCircleOutline";
 import DeleteOutlinedIcon from "@mui/icons-material/DeleteOutlined";
 import BorderColorOutlinedIcon from "@mui/icons-material/BorderColorOutlined";
 import RemoveRedEyeOutlinedIcon from "@mui/icons-material/RemoveRedEyeOutlined";
 import { useNavigate } from "react-router-dom";
 import ViewBlog from "./ViewBlog";
-import CodeBox from '@bomdi/codebox';
 import { toast } from "react-toastify";
-import { CompareSharp } from "@mui/icons-material";
-import exampleData from '../Editor/myEditor/exampledata';
 function createData(name, calories, fat, carbs, protein) {
     return { name, calories, fat, carbs, protein };
 }
@@ -30,14 +26,18 @@ const BlogList = () => {
 
     const [isLoading, setIsLoading] = React.useState(true);
     React.useEffect(() => {
-        get("/blog").then((response) => {
+        if (isLoading) {
+            get("/blog").then((response) => {
 
-            if (response.status === 200) {
-                setBlogData(response.data?.results);
-                setIsLoading(false);
+                if (response.status === 200) {
+                    setBlogData(response.data?.results);
+                    setIsLoading(false);
+                }
             }
+
+            );
+
         }
-        );
     }, [isLoading]);
     const navigate = useNavigate();
     const handleClick = (row) => {
@@ -55,7 +55,6 @@ const BlogList = () => {
         })
     }
 
-    console.log(JSON.stringify(exampleData))
 
     return (
         <>
@@ -143,7 +142,6 @@ const BlogList = () => {
                     </>
                 ) : (
                     <>
-                        <p>No Blogs</p>
                     </>
                 )
             }            {

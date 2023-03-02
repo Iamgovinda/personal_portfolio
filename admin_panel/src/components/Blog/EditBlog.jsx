@@ -5,13 +5,12 @@ import { useParams } from 'react-router-dom';
 import { get } from '../../API/axios';
 import { Container } from '@mui/material';
 
+import Editor from '../Editor/Editor';
 
-import Editor2 from '../Editor/Editor2';
 
-
-const AddBlog = () => {
+const EditBlog = () => {
   const { uuid } = useParams();
-  const [data, setData] = useState({ "ok": "NOtdj" });
+  const [data, setData] = useState([]);
   useEffect(() => {
     get(`/blog/${uuid}`).then((response) => {
       if (response.status === 200) {
@@ -23,11 +22,11 @@ const AddBlog = () => {
     <>
       <Container>
         <div className={styles['add-blog']}>
-          <Editor2 content={data} uuid={uuid}/>
+          <Editor content={data} uuid={uuid}/>
         </div>
       </Container>
     </>
   )
 }
 
-export default AddBlog
+export default EditBlog

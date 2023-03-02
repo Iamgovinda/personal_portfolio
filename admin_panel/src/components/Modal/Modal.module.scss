@@ -1,16 +1,21 @@
 .header{
     background-color: grey;
-    padding: 2rem;
+    padding: 1rem;
     font-weight: 700;
     font-size: 2rem;
+    margin-bottom: 0rem !important;
 }
 .blog{
     padding: 0rem !important;
     border: none;
 }
 .blog-fields{
-    padding: 2rem 1rem;
+    padding: 1rem 1rem;
 }
 .text-field{
-    margin-bottom: 1rem;
+    margin-bottom: 1rem !important;
+}
+.label{
+    font-size: 1rem;
+    font-weight: 600;
 }

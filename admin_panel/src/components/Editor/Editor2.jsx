@@ -12,12 +12,12 @@ import styles from './Editor.module.scss';
 import CodeBox from '@bomdi/codebox';
 import { get } from '../../API/axios';
 import { toast } from "react-toastify";
-import './Editor.module.scss';
 import { Button } from "@mui/material";
 
 
 
-function Editor(props) {
+
+function Editor2(props) {
   const navigate = useNavigate();
   const Marker = require('@editorjs/marker');
   const LinkTool = require('@editorjs/link');
@@ -45,7 +45,7 @@ function Editor(props) {
       "content": data
     }).then((response) => {
       if (response.status === 200) {
-        toast.success("Blog Updated successfully")
+        toast.success("Blog Added successfully")
         navigate('/');
 
       } else {
@@ -73,7 +73,6 @@ function Editor(props) {
   }
 
   React.useEffect(() => {
-    if (blogData) {
       const config = {
         holder: "editorjs",
         focus: true,
@@ -159,17 +158,18 @@ function Editor(props) {
         }
       }
       const editor = new EditorJS(config);
-    }
 
-  }, [blogData]);
+  }, []);
 
   return (<>
     <h1>Enter the content</h1>
     <div id="editorjs" className={styles['editorjs']}>
     </div>
+    <pre id="output"></pre>
     <Button onClick={handleSave} className={styles['save_btn']} variant="contained">Save</Button>
+
   </>
   );
 }
 
-export default Editor;
+export default Editor2;

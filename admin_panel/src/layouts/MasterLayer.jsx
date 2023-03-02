@@ -1,7 +1,7 @@
 import React from 'react';
 import SideBar from '../components/SideBar/SideBar';
 import NavigationBar from '../components/NavBar/Navbar';
-import styles from '../components/SideBar/SideBar.module.scss';
+import styles from './MasterLayer.module.scss';
 import { Icon } from '@iconify/react';
 import { Row, Col, Container } from 'react-bootstrap';
 import { styled, useTheme } from '@mui/material/styles';
@@ -24,6 +24,10 @@ import ListItemText from '@mui/material/ListItemText';
 import InboxIcon from '@mui/icons-material/MoveToInbox';
 import MailIcon from '@mui/icons-material/Mail';
 import { useNavigate } from 'react-router-dom';
+import ExitToAppIcon from '@mui/icons-material/ExitToApp';
+import { removeToken } from '../utils/token';
+import { toast } from 'react-toastify';
+
 const drawerWidth = 240;
 
 const openedMixin = (theme) => ({
@@ -102,46 +106,39 @@ const MasterLayer = (props) => {
   const handleDrawerClose = () => {
     setOpen(false);
   };
+  const handleLogout = () =>{
+    removeToken({name: 'token'});
+    navigate('/login');
+    // window.location.reload();
+    toast.success('logged out successfully');
+
+  }
   const navigate = useNavigate();
   return (
     <>
-      {/* <Row className={styles["sidebar-row"]}>
-                <Col xs={3} sm={2} md={2} lg={2} className={styles["sidebar-col"]}>
-                    <div className={styles['menu']}>
-                        <div className={styles["icon"]}>
-                            <Icon icon="logos:blogger" fontSize={35} />
-                        </div>
-                        <p className={styles["menu-name"]}>
-                            Blog
-                        </p>
-                    </div>
-                </Col>
-                <Col className={styles['right-div']}>
-                    <NavigationBar />
-                    <Container style={{ paddingTop:'5rem' }}>
-
-                        {props.children}
-                    </Container>
-                </Col>
-            </Row> */}
       <Box sx={{ display: 'flex' }}>
         <CssBaseline />
         <AppBar position="fixed" open={open}>
-          <Toolbar>
-            <IconButton
-              color="inherit"
-              aria-label="open drawer"
-              onClick={handleDrawerOpen}
-              edge="start"
-              sx={{
-                marginRight: 5,
-                ...(open && { display: 'none' }),
-              }}
-            >
-              <MenuIcon />
-            </IconButton>
-            <Typography variant="h6" noWrap component="div">
-              Admin Panel
+          <Toolbar className={styles['toolbar']}>
+            <div className={styles['toolbar-div']}>
+              <IconButton
+                color="inherit"
+                aria-label="open drawer"
+                onClick={handleDrawerOpen}
+                edge="start"
+                sx={{
+                  marginRight: 5,
+                  ...(open && { display: 'none' }),
+                }}
+              >
+                <MenuIcon />
+              </IconButton>
+              <Typography variant="h6" noWrap component="div">
+                Admin Panel
+              </Typography>
+            </div>
+            <Typography textAlign={'right'}>
+              <ExitToAppIcon style={{cursor:'pointer'}} onClick={handleLogout}/>
             </Typography>
           </Toolbar>
         </AppBar>

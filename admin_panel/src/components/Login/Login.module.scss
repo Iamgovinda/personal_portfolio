@@ -1,0 +1,24 @@
+.login-box{
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    // -moz-transform: translateX(-50%) translateY(-50%);
+    // -webkit-transform: translateX(-50%) translateY(-50%);
+    transform: translateX(-50%) translateY(-80%);
+    border: 1px solid gray;
+    border-radius: 0rem 0rem 1rem 1rem;
+    min-width: 25rem;
+}
+
+
+.login-text{
+    padding: 1rem;
+    font-size: 1.5rem;
+    font-weight: 700;
+    font-family: poppins;
+    background-color: green;
+    text-align: center;
+}
+.login-fields{
+    padding: 0.3rem 1rem;
+}
