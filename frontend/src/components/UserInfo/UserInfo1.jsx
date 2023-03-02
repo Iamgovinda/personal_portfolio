@@ -14,7 +14,7 @@ const UserInfo1 = (props) => {
                         <p className={styles['text-2']}>
                         {props?.data[0]?.description}
                         </p>
-                        <MyButton txt="Say Hello" />
+                        <MyButton txt="Say Hello" email={props?.data[0]?.email}/>
                     </div>
 
                     <div className={styles['user-data-box']}>

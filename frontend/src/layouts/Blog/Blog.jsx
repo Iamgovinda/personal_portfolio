@@ -1,4 +1,4 @@
-import React, {useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import Slider from 'react-slick';
 
 import { Container } from 'react-bootstrap';
@@ -6,16 +6,16 @@ import styles from './BlogLayout.module.scss';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import BlogCard from '../../components/BlogCard/BlogCard';
-import {get} from '../../API/axios';
+import { get } from '../../API/axios';
 
 
 const BlogLayout = () => {
     const [blog, setBlog] = useState();
     const [isLoading, setIsLoading] = useState(true);
-    useEffect(()=>{
-        if(isLoading){
-            get(`/blog/`).then((response)=>{
-                if(response.status===200){
+    useEffect(() => {
+        if (isLoading) {
+            get(`/blog/`).then((response) => {
+                if (response.status === 200) {
                     setBlog(response.data?.results);
                 }
             })
@@ -25,7 +25,7 @@ const BlogLayout = () => {
         dots: true,
         infinite: true,
         speed: 250,
-        slidesToShow: 2,
+        slidesToShow: 4,
         slidesToScroll: 1,
         initialSlide: 0,
         responsive: [
@@ -57,18 +57,22 @@ const BlogLayout = () => {
     };
     return (
         <Container id='blog' className={styles['blog']}>
-            <div className={styles['blog-title']}>Blog</div>
-            <Slider {...settings}>
-                {
-                    blog?.map((item, index) => {
-                        return (
-                            <>
-                                <BlogCard key={index} data={item}/>
-                            </>
-                        )
-                    })
-                }
-            </Slider>
+            {
+                (blog && blog.length>0) && (<>
+                    <div className={styles['blog-title']}>Blog</div>
+                    <Slider {...settings}>
+                        {
+                            blog?.map((item, index) => {
+                                return (
+                                    <>
+                                        <BlogCard key={index} data={item} />
+                                    </>
+                                )
+                            })
+                        }
+                    </Slider>
+                </>)
+            }
         </Container>
     )
 }

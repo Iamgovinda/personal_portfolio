@@ -1,9 +1,7 @@
 import React from "react";
 import styles from "./Resume.module.scss";
 import { Row, Col, Container } from "react-bootstrap";
-// import { easeQuadInOut } from "d3-ease";
 
-// import { ProgressBar } from "react-toastify/dist/components";
 import {
     CircularProgressbar,
     buildStyles
@@ -11,57 +9,7 @@ import {
 import "react-circular-progressbar/dist/styles.css";
 
 const Resume = (props) => {
-    // const datas = [
-    //     {
-    //         date: "2009",
-    //         company: "Tribhuwan University",
-    //         description: `
-    //         Lorem Ipsum is simply dummy text of the printing and typesetting
-    //         industry.Lorem Ipsum has been the industry's standard dummy text
-    //         ever since the 1500s, when an unknown printer took a galley of
-    //         type and scrambled it to make a type specimen book.
-    //         Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima praesentium quod facilis eveniet doloribus esse repellat iste animi repudiandae corrupti earum nulla atque ipsa recusandae suscipit perspiciatis velit, adipisci saepe sequi? Quod ab molestias velit perspiciatis neque sunt voluptates, mollitia iste non error qui, at corporis laboriosam dolores autem voluptate voluptatibus sit nostrum ducimus nemo dolor.
-            
-    //         `,
-    //     },
-    //     {
-    //         date: "2009",
-    //         company: "Tribhuwan University",
-    //         description: `
-    //           Lorem Ipsum is simply dummy text of the printing and typesetting
-    //           industry.Lorem Ipsum has been the industry's standard dummy text
-    //           ever since the 1500s, when an unknown printer took a galley of
-    //           type and scrambled it to make a type specimen book.
-    //           `,
-    //     },
-    //     {
-    //         date: "2009",
-    //         company: "Tribhuwan University",
-    //         description: `
-    //           Lorem Ipsum is simply dummy text of the printing and typesetting
-    //           industry.Lorem Ipsum has been the industry's standard dummy text
-    //           ever since the 1500s, when an unknown printer took a galley of
-    //           type and scrambled it to make a type specimen book.
-    //           `,
-    //     },
-    // ];
-    // const skills = [
-    //     {
-    //         'title': 'HTML',
-    //         'per': 60
-    //     },
-    //     {
-    //         'title': 'HTML',
-    //         'per': 60
-    //     }, {
-    //         'title': 'HTML',
-    //         'per': 60
-    //     }, {
-    //         'title': 'HTML',
-    //         'per': 60
-    //     },
-    // ]
-    // console.log("Certificates: ", props?.data?.certificate);
+
     return (
         <>
             <Container className={styles["container-parent"]} id="resume">
@@ -106,39 +54,6 @@ const Resume = (props) => {
 
                 <p className={styles["certificate"]}>Certificates</p>
                 <Row>
-                    {/* <Col lg={6} sm={12}>
-                        <a
-                            href="https://www.sololearn.com/Certificate/CT-BEND7IBK/jpg"
-                            style={{ textDecoration: "none" }}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                        >
-                            <div className={styles["cert-parent"]}> */}
-                    {/* <img src="https://www.sololearn.com/Certificate/CT-BEND7IBK/jpg" alt="certi-img"/> */}
-                    {/* <div className={styles["cert-img-box"]}>
-                                    <img
-                                        src="https://www.sololearn.com/Certificate/CT-BEND7IBK/jpg"
-                                        alt="certi-img"
-                                        className={styles["cert-img"]}
-                                    />
-                                </div>
-                                <div className={styles["cert-content"]}>
-                                    <div>
-                                        <p className={styles["certificate-name"]}>
-                                            Name of the Certification
-                                        </p>
-                                    </div>
-                                    <div className={styles["certificate-id"]}>
-                                        Certification ID: XXXXXXXXX
-                                    </div>
-                                    <div className={styles["certificate-id"]}>19 April 2022</div>
-                                    <div className={styles["certificate-id"]}>
-                                        Certification Agency: Sololearn
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
-                    </Col> */}
                     {
                         props?.data?.certificate && props?.data?.certificate?.map((item, index) => {
                             return <>

@@ -14,13 +14,13 @@ const BlogView = (props) => {
   const { uuid } = useParams();
   useEffect(() => {
     console.log("Inside log");
-      get(`/blog/${uuid}/`).then((response) => {
-        console.log("HEllo, ", response);
-        if (response.status === 200) {
-          setBlog(response?.data);
-          setBlogData(JSON.parse(response?.data?.content));
-        }
-      })
+    get(`/blog/${uuid}/`).then((response) => {
+      console.log("HEllo, ", response);
+      if (response.status === 200) {
+        setBlog(response?.data);
+        setBlogData(JSON.parse(response?.data?.content));
+      }
+    })
   }, [])
   console.log("This is blogData: ", blog?.written_by);
   return (
@@ -29,8 +29,10 @@ const BlogView = (props) => {
         <h1 className={styles["top"]}>
           {blog?.title}
         </h1>
-        <p className={styles['blog-info']}><Icon icon="arcticons:writeilypro" style={{fontSize:'1.2rem'}} /> {blog?.written_by + ' | ' + blog?.publish_date}</p>
-        <Output data={blogData ?? "dfsk"} className={styles['output']}/>
+        <p className={styles['blog-info']}><Icon icon="arcticons:writeilypro" style={{ fontSize: '1.2rem', fontWeight: 'bold' }} /> {blog?.written_by + ' | ' + blog?.publish_date}</p>
+        <div className={styles["content"]}>
+          <Output data={blogData ?? "dfsk"} className={styles['output']} />
+        </div>
       </Container>
     </>
   )

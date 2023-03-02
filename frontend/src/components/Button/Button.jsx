@@ -2,9 +2,18 @@ import React from 'react';
 import { Button } from 'react-bootstrap';
 import styles from './Button.module.scss';
 const MyButton = (props) => {
+  console.log(props)
   return (
     <Button className={styles['btn']}>
-        {props.txt}
+        {
+          (props.email)?(
+            <>
+              <a href={`mailto:${props?.email}`} style={{textDecoration:'none', color:'white'}}>{props?.txt}</a>
+            </>
+          ):(
+            <>{props?.txt}</>
+          )
+        }
     </Button>
   )
 }

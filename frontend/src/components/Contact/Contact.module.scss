@@ -125,3 +125,12 @@
     color: white;
   }
 }
+
+@media screen and (max-width:768px) {
+  .contact-parent{
+    padding: 2rem;
+  }
+  .info-box{
+    padding-left: 0px;
+  }
+}

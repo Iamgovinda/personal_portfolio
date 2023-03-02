@@ -1,15 +1,23 @@
-.top{
-    margin-top: 1rem;
+.top {
+  margin-top: 1rem;
+  font-family: cursive !important;
+  margin-bottom: 1rem;
 }
-.container{
-    background-color: gray;
-    padding: 3rem;
-    border-radius: 1rem;
-    margin-bottom: 1rem;
-    display: flex;
-    align-items: flex-start;
-    flex-direction: column;
+.container {
+  background-color: #F0F1F3;
+  padding: 3rem;
+  border-radius: 1rem;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
 }
-.blog-info{
-    margin: 0 !important;
+.blog-info {
+  font-family: sans-serif;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.content {
+//   padding: 0 5rem;
 }

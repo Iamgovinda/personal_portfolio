@@ -41,25 +41,27 @@ const ClientLayout = (props) => {
             }
         ]
     };
-  return (
-    <>
-        <Container style={{marginBottom:'2rem'}} id='clients'>
-            <div className={styles['happy-client-title']}>Happy Clients</div>
-            <Slider {...settings}>
-                {
-                    props?.data?.map((item, index) => {
-                        return (
-                            <>
-                                <Client key={index} data={item}/>
-                            </>
-                        )
-                    })
-                }
-            </Slider>
+    return (
+        <>
+            <Container style={{ marginBottom: '2rem' }} id='clients'>
+                {((props?.data && props?.data?.length>0) && (<>
+                    <div className={styles['happy-client-title']}>Happy Clients</div>
+                    <Slider {...settings}>
+                        {
+                            props?.data?.map((item, index) => {
+                                return (
+                                    <>
+                                        <Client key={index} data={item} />
+                                    </>
+                                )
+                            })
+                        }
+                    </Slider>
+                </>))}
 
-        </Container>
-    </>
-  )
+            </Container>
+        </>
+    )
 }
 
 export default ClientLayout

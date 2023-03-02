@@ -32,7 +32,7 @@ const Home = () => {
           setIsLoading(false);
         }
       })
-      get(`/user/`).then((response)=>{
+      get(`/user/info/`).then((response)=>{
         if(response.status===200){
           setUserInfo(response.data.results);
           setIsLoading(false);
@@ -60,7 +60,7 @@ const Home = () => {
         }
       })
     }
-  }, [isLoading, userAbout, userInfo])
+  }, [])
   return (
     <>
       <div className={styles["parent"]}>
@@ -69,7 +69,7 @@ const Home = () => {
         <div className={styles["blur2"]}></div>
         <div className={styles["blur3"]}></div>
       </div>
-      <WhatIDo />
+      <WhatIDo email={userInfo[0]?.email}/>
       <Resume data={resume}/>
       <BlogLayout />
       <TestimonialLayout data={testimonial}/>

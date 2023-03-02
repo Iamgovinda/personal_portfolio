@@ -23,7 +23,7 @@ const Contact = (props) => {
                 <Row>
                     <Col lg={6}>
                         <p className={styles['text-1']}>Let’s discuss your Project</p>
-                        <p className={styles['text-2']}>There are many variations of passages of Lorem Ipsu available. but the majority have suffered alte.</p>
+                        {/* <p className={styles['text-2']}>There are many variations of passages of Lorem Ipsu available. but the majority have suffered alte.</p> */}
                         <div className={styles['info-box']}>
                             <div className={styles["info-icon"]}>
 
@@ -102,8 +102,7 @@ const Contact = (props) => {
                         </div>
                     </Col>
                     <Col lg={6}>
-                        <p className={styles['text-2']}>There are many variations of passages of Lorem Ipsu available,
-                            but the majority have suffered alte.</p>
+                        <p className={styles['text-2']}>You are welcomed to contact me through this form. I'll be happy to get in touch with you</p>
                         <Form onSubmit={handleSubmit(onSubmit)}>
                             <Row>
                                 <Col lg={12}>
@@ -133,7 +132,7 @@ const Contact = (props) => {
                                 </Col>
                                 <Col lg={12}>
                                     <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-                                        <Form.Control type="text" placeholder="Message*" className={styles['input-box']} {...register("message")} />
+                                        <Form.Control as={'textarea'} type="text" placeholder="Message*" className={styles['input-box']} {...register("message")} />
                                     </Form.Group>
                                 </Col>
                                 <Col>
