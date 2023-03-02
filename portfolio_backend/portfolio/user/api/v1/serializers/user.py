@@ -1,3 +1,4 @@
+from django.contrib.auth.models import User
 from rest_framework import serializers
 
 from portfolio.commons.api.v1.serializers.file_upload import FileUploadSerializer
@@ -65,3 +66,9 @@ class WhatIDoSerializer(DynamicFieldsModelSerializer):
     def get_what_i_do_items(self, obj):
         what_i_do_queryset = WhatIDoItem.objects.all()
         return WhatIDoItemSerializer(what_i_do_queryset, many=True).data
+
+
+class UserSerializer(DynamicFieldsModelSerializer):
+    class Meta:
+        model = User
+        fields = ('username', 'email', 'is_active', 'groups')

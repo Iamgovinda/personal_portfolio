@@ -19,7 +19,8 @@ INSTALLED_APPS = [
     'rest_framework_swagger',
     'cuser',
     'corsheaders',
-'rest_framework.authtoken',
+    'rest_framework.authtoken',
+    'knox',
 
     # LOCAL APPS
     'portfolio.commons',
@@ -64,6 +65,8 @@ TEMPLATES = [
 CORS_ALLOW_ALL_ORIGINS = True
 
 WSGI_APPLICATION = 'config.wsgi.application'
+
+
 
 # Password validation
 # https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-validators
@@ -111,9 +114,12 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 REST_FRAMEWORK = {
-    # 'DEFAULT_PERMISSION_CLASSES': (
-    #     'rest_framework.permissions.IsAuthenticated',
-    # ),
+    'DEFAULT_PERMISSION_CLASSES': (
+        'rest_framework.permissions.AllowAny',
+    ),
+    # 'DEFAULT_AUTHENTICATION_CLASSES': [
+    # ],
+
     'DEFAULT_SCHEMA_CLASS': 'rest_framework.schemas.coreapi.AutoSchema',
     'DEFAULT_PAGINATION_CLASS': 'portfolio.commons.pagination.LimitZeroNoResultsPagination',
     'PAGE_SIZE': 20,
@@ -150,5 +156,14 @@ SWAGGER_SETTINGS = {
         }
     },
 }
+AUTHENTICATION_BACKENDS = (
+        'django.contrib.auth.backends.ModelBackend',
+    )
 
 BACKEND_URL = 'http://127.0.0.1:8000/'
+
+APP_HEADER_INFORMATION = {
+    'APP_NAME': 'x-levelup-app-name',
+    'DEVICE_UNIQUE_ID': 'x-levelup-unique-id',
+    'APP_VERSION': 'x-levelup-app-version',
+}
