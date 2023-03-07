@@ -31,16 +31,16 @@
   font-size: 16px;
   line-height: 24px;
   color: var(--font-secondary);
-  display: -webkit-box;
-  -webkit-line-clamp: 6;
-  -webkit-box-orient: vertical;
+  // display: -webkit-box;
+  // -webkit-line-clamp: 6;
+  // -webkit-box-orient: vertical;
   position: relative;
   cursor: pointer;
 }
 
-.wid-desc:hover{
-  -webkit-line-clamp: 100;
-}
+// .wid-desc:hover{
+//   -webkit-line-clamp: 100;
+// }
 .col-right {
   display: flex;
   flex-direction: column;
