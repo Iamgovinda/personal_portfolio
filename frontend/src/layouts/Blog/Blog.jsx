@@ -17,6 +17,7 @@ const BlogLayout = () => {
             get(`/blog/`).then((response) => {
                 if (response.status === 200) {
                     setBlog(response.data?.results);
+                    setIsLoading(false);
                 }
             })
         }

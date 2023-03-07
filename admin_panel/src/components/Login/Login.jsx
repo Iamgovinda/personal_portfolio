@@ -37,7 +37,6 @@ const Login = () => {
         loginPOST("user/auth/obtain/", data)
             .then((res) => {
                 if (res.data.group === "Admin") {
-                    console.log("My TOken: ", res.data.token)
                     setToken({
                         name: config.tokenName,
                         value: JSON.stringify(res.data.token),
@@ -45,7 +44,7 @@ const Login = () => {
                     toast.success("Login Successful");  
                     if(getToken() != null){
                         get(`user/account/${"me"}/`).then((response) => {
-                            console.log(response.data);
+                            setUserData(response.data);
                         });
                     }
                     navigate('/');

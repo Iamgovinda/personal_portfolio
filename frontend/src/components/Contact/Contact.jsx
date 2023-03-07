@@ -7,7 +7,6 @@ import { useForm } from "react-hook-form";
 import { post } from '../../API/axios';
 import { toast } from 'react-toastify';
 const Contact = (props) => {
-    console.log("Contact: ", props?.about[0]?.social_links?.twitter);
     const { register, handleSubmit, reset } = useForm();
     const onSubmit = data => {
         post(`/contact/`, data).then((response) => {

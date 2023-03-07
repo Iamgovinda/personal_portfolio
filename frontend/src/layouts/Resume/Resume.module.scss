@@ -117,9 +117,12 @@
   text-overflow: ellipsis;
   overflow: hidden;
   display: -webkit-box;
-  -webkit-line-clamp: 10;
+  -webkit-line-clamp: 6;
   -webkit-box-orient: vertical;
   position: relative;
+}
+.dsc:hover{
+  -webkit-line-clamp: 100;
 }
 //Certificate Section
 .certificate{

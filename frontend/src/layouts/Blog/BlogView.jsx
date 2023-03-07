@@ -3,26 +3,21 @@ import Output from 'editorjs-react-renderer';
 import { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { get } from '../../API/axios';
-import CodeBlock from './Renderers';
 import { Container } from 'react-bootstrap';
 import styles from './BlogView.module.scss';
 import { Icon } from '@iconify/react';
-// import ModeEditIcon from '@mui/icons-material/ModeEdit';
 const BlogView = (props) => {
   const [blog, setBlog] = useState([]);
   const [blogData, setBlogData] = useState();
   const { uuid } = useParams();
   useEffect(() => {
-    console.log("Inside log");
     get(`/blog/${uuid}/`).then((response) => {
-      console.log("HEllo, ", response);
       if (response.status === 200) {
         setBlog(response?.data);
         setBlogData(JSON.parse(response?.data?.content));
       }
     })
   }, [])
-  console.log("This is blogData: ", blog?.written_by);
   return (
     <>
       <Container className={styles['container']}>

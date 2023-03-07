@@ -8,15 +8,15 @@ import { Link } from "react-scroll";
 import { HashLink } from 'react-router-hash-link';  
 // import { Button } from "react-bootstrap";
 import MyButton from "../Button/Button";
-const NavigationBar = () => {
+const NavigationBar = (props) => {
   const navigate = useNavigate();
   return (
     <>
       <Navbar style={{backgroundColor:'#FFFFFF'}} expand="lg">
         <Container>
           <Navbar.Brand href="/" className="d-flex gap-3 align-items-center">
-            <div className={styles["logo"]}>UD</div>
-            <p className={styles['brooklyn']}>Uddav Dahal</p>
+            <div className={styles["logo"]}>{props?.user?.name?.split(" ").map((word => word[0])).join("")}</div>
+            <p className={styles['brooklyn']}>{props?.user?.name}</p>
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">

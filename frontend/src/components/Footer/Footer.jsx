@@ -3,7 +3,7 @@ import { Row, Col, Container } from 'react-bootstrap';
 import styles from './Footer.module.scss';
 import { Link } from 'react-scroll';
 
-const Footer = () => {
+const Footer = (props) => {
   return (
     <>
       <div className={styles["footer-main"]}>
@@ -11,8 +11,8 @@ const Footer = () => {
           <Row className={styles['row-main']}>
             <Col lg={4} className={styles['first-content']}>
               <div className={styles["icon"]}>
-                B
-              </div><span className={styles['user-name']}>Brooklyn</span>
+                {props?.user?.name?.split(" ").map((word => word[0])).join("")}
+              </div><span className={styles['user-name']}>{props?.user?.name}</span>
             </Col>
             <Col lg={4} className={styles['middle-content']}>
               <Link style={{cursor:'pointer'}} to='home'>Home</Link>

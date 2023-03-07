@@ -37,7 +37,7 @@ const Resume = (props) => {
                         {props?.data?.experience?.map((item, index) => {
                             return (
                                 <>
-                                    <div className={styles["timeline-item"]}>
+                                    <div className={styles["timeline-item"]} key={index}>
                                         <h5 className={styles["time-period"]}>{item?.end_date}</h5>
                                         <span className={styles["item-company"]}>
                                         {item?.title} , {item?.company_name}

@@ -29,7 +29,6 @@ function Editor2(props) {
   useEffect(() => {
     if (isLoading) {
       get(`/blog/${props?.uuid}`).then((response) => {
-        console.log(response);
 
         if (response.status === 200) {
           setBlogData(JSON.parse(response.data?.content));

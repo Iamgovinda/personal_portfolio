@@ -11,7 +11,6 @@ export const getToken = () => {
   };
   
   export const removeToken = (args) => {
-    console.log("Remove Token Called");
     localStorage.removeItem(args.name);
   };
   
