@@ -3,6 +3,7 @@ import React from 'react'
 import MasterLayer from "../layouts/MasterLayout";
 import Home from "../layouts/Home/Home";
 import BlogView from "../layouts/Blog/BlogView";
+import BlogPage from "../layouts/Blog/BlogPage";
 
 const Routers = () => {
   return (
@@ -11,6 +12,7 @@ const Routers = () => {
             <Route path="/" element={<Home />} />
             {/* <Route path="resume/" element={<Resume />} /> */}
             <Route path="view-blog/:uuid" element={<BlogView />} />
+            <Route path="all-blogs/" element={<BlogPage />} />
         </Routes>
     </MasterLayer>
   )

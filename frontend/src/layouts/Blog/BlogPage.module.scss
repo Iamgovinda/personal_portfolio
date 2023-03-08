@@ -1,0 +1,28 @@
+.container-parent{
+    min-height: 45rem;
+    background-color: #F0F1F3;
+    padding: 3rem;
+    border-radius: 1rem;
+    position: relative;
+    z-index: 1;
+    margin-bottom: -10rem
+}
+
+.text-1{
+    font-size: 2rem;
+    font-weight: 700;
+    font-family: poppins;
+    color: white;
+}
+
+.search-box-div{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-bottom: 2rem;
+    padding: 1.5rem;
+    padding-bottom: 1rem;
+    border-radius: 1rem;
+    background-color: #2b384c;
+}

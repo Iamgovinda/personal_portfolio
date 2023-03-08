@@ -1,5 +1,5 @@
 import React from 'react';
-import { Row, Col, Container, Stack } from 'react-bootstrap';
+import { Row, Col, Container, Stack ,Button } from 'react-bootstrap';
 import styles from './WhatIDo.module.scss';
 import MyButton from '../../components/Button/Button';
 import { useState, useEffect } from 'react';
@@ -17,8 +17,11 @@ const WhatIDo = (props) => {
         })
     }
   }, [isLoading, whatIDo])
+
+  console.log(props?.email)
     return (
         <div className={styles['parent']}>
+
             <Container>
                 <Row gap={2} className={styles["grid-row"]}>
                     <Col lg={6} className={styles['col-right']}>
@@ -28,7 +31,7 @@ const WhatIDo = (props) => {
                         <p className={styles['wid-desc']}>
                             {whatIDo[0]?.what_i_do_desc}
                         </p>
-                        <MyButton txt="Say Hello" email={props?.email} style={{marginTop:'1rem'}}/>
+                        <MyButton txt="Say Hello" email={props?.email} style={{marginTop:'1rem'}} text='from whatido'/>
                     </Col>
                     <Col lg={6} className={styles['col-left']}>
                         <Stack style={{ gap: '1rem' }}>

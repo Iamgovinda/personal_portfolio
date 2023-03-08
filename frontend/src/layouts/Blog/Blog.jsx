@@ -7,6 +7,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import BlogCard from '../../components/BlogCard/BlogCard';
 import { get } from '../../API/axios';
+import { Link } from 'react-router-dom';
 
 
 const BlogLayout = () => {
@@ -24,11 +25,16 @@ const BlogLayout = () => {
     }, [isLoading])
     const settings = {
         dots: true,
-        infinite: true,
+        infinite: false,
         speed: 250,
         slidesToShow: 4,
         slidesToScroll: 1,
         initialSlide: 0,
+        autoplay: true,
+        speed: 10000,
+        autoplaySpeed: 10000,
+        cssEase: "linear",
+        pauseOnHover: true,
         responsive: [
             {
                 breakpoint: 1024,
@@ -59,8 +65,13 @@ const BlogLayout = () => {
     return (
         <Container id='blog' className={styles['blog']}>
             {
-                (blog && blog.length>0) && (<>
-                    <div className={styles['blog-title']}>Blog</div>
+                (blog && blog.length > 0) && (<>
+                    <div className={styles['blog-title']}>
+                        <p>Blog</p>
+                        {
+                            (blog?.length>4) && <Link className={styles['view-all']} to='/all-blogs'>view all</Link>
+                        }
+                    </div>
                     <Slider {...settings}>
                         {
                             blog?.map((item, index) => {

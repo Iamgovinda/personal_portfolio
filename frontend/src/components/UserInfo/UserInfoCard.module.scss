@@ -4,6 +4,8 @@
   box-shadow: 0px 36px 105px rgba(43, 56, 76, 0.1);
   border-radius: 16px;
   // min-width: 35rem;
+  z-index: 3;
+  position: relative;
 }
 
 .user-img {
@@ -44,7 +46,7 @@
 .icons {
   display: flex;
   align-items: center;
-  padding:7px;
+  padding: 7px;
   background: #ffffff;
   box-shadow: 0px 12px 64px rgba(28, 25, 25, 0.12);
   border-radius: 4px;
@@ -53,13 +55,13 @@
   gap: 1rem;
   cursor: pointer;
 }
-.connections-icon-box{
+.connections-icon-box {
   border: none !important;
   border-radius: 3px !important;
   cursor: pointer;
 }
 
-.img-icon-box{
+.img-icon-box {
   position: relative;
   display: flex;
   align-items: center;
@@ -67,7 +69,7 @@
   flex-direction: column;
 }
 
-.icon{
+.icon {
   color: #a53dff;
   font-size: 2.5rem;
   padding: 10px;
@@ -79,13 +81,12 @@
   }
 }
 
-
-@media screen and (max-width:768px){
-  .content-row{
+@media screen and (max-width: 768px) {
+  .content-row {
     padding: 1.5rem;
     align-items: flex-start;
   }
-  .img-icon-box{
+  .img-icon-box {
     margin-bottom: 4rem;
   }
 }

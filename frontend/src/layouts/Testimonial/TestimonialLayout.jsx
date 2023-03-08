@@ -16,7 +16,11 @@ const TestimonialLayout = (props) => {
         speed: 250,
         slidesToShow: 2,
         slidesToScroll: 2,
-        initialSlide: 0,
+        autoplay: true,
+        speed: 10000,
+        autoplaySpeed:10000,
+        cssEase: "linear",
+        pauseOnHover:true,
         responsive: [
             {
                 breakpoint: 1024,

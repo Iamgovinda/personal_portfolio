@@ -7,10 +7,9 @@
   background-color: #F0F1F3;
   padding: 3rem;
   border-radius: 1rem;
-  margin-bottom: 1rem;
-  display: flex;
-  align-items: flex-start;
-  flex-direction: column;
+  position: relative;
+  z-index: 1;
+  margin-bottom: -10rem;
 }
 .blog-info {
   font-family: sans-serif;

@@ -10,20 +10,26 @@
 .blog-info {
   font-family: "Work Sans";
   font-style: normal;
-  font-weight: 500;
   font-size: 15px;
   line-height: 24px;
+  font-weight: 600;
   color: #333333;
 }
 
-.blog-card-top{
-    max-width: 18rem;
-    cursor: grab;
+.blog-card-top {
+  max-width: 18rem;
+  cursor: grab;
 }
 
-.blog-img{
+.blog-img {
   height: 10rem;
 }
-.blog-desc{
+.blog-desc {
   font-weight: 700;
+  font-size: 1.5rem;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }

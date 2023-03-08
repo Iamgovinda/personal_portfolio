@@ -4,10 +4,10 @@ import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import styles from "./Navbar.module.scss";
 import { useNavigate } from "react-router-dom";
-import { Link } from "react-scroll";
 import { HashLink } from 'react-router-hash-link';  
 // import { Button } from "react-bootstrap";
 import MyButton from "../Button/Button";
+import { Link } from "react-router-dom";
 const NavigationBar = (props) => {
   const navigate = useNavigate();
   return (
@@ -26,11 +26,10 @@ const NavigationBar = (props) => {
               <HashLink className={styles['common-text']} smooth to="/#about">About</HashLink>
               <HashLink className={styles['common-text']} smooth to="/#resume">Resume</HashLink> 
               <HashLink className={styles['common-text']} smooth to="/#testimonial">Testimonial</HashLink>{" "}
-              <HashLink className={styles['common-text']} smooth to="/#blog">Blog</HashLink> 
-              <HashLink className={styles['common-text']} smooth to="/#clients">Clients</HashLink>
+              <Link className={styles['common-text']} to={'/all-blogs'}>Blog</Link>{" "}
             </Nav>
-            <Link to="contact">
-            <MyButton txt="Contact" /></Link>
+            <HashLink smooth to="/#contact" className={styles['common-text']}>
+            <MyButton txt="Contact" /></HashLink>
           </Navbar.Collapse>
         </Container>
       </Navbar>

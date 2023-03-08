@@ -1,5 +1,5 @@
 import React from "react";
-import { Row, Col, Container } from "react-bootstrap";
+import { Row, Col, Container ,Button} from "react-bootstrap";
 import MyButton from "../Button/Button";
 import styles from './UserInfo1.module.scss';
 import userImg from '../../assets/UserInfo/user1.jpg';
@@ -14,7 +14,8 @@ const UserInfo1 = (props) => {
                         <p className={styles['text-2']}>
                         {props?.data[0]?.description}
                         </p>
-                        <MyButton txt="Say Hello" email={props?.data[0]?.email}/>
+                        <MyButton txt="Say Hello" email={props?.data[0]?.email} text='user info 1'/>
+                       
                     </div>
 
                     <div className={styles['user-data-box']}>

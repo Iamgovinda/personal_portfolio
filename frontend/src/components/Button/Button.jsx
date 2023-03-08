@@ -1,9 +1,11 @@
 import React from 'react';
 import { Button } from 'react-bootstrap';
 import styles from './Button.module.scss';
-const MyButton = (props) => {
 
+const MyButton = (props) => {
+console.log(props)
   return (
+
     <Button className={styles['btn']}>
         {
           (props.email)?(

@@ -10,6 +10,7 @@
   display: flex;
   align-items: center;
   gap: 10px;
+  padding-left: 1px !important;
   p {
     margin: 0px !important;
   }
@@ -29,14 +30,19 @@
   display: flex;
   align-items: center;
   gap: 1rem;
+  padding-left: 7px !important;
 }
 .row-main {
   display: flex;
   align-items: center;
   margin-bottom: 2rem;
+  
 }
 .last-content {
   margin: 0px !important;
+  padding-left: 0.5rem !important;
+  padding-top: 0px !important;
+
 }
 .user-name {
   font-family: "Work Sans";
@@ -45,4 +51,26 @@
   font-size: 32px;
   line-height: 40px;
   color: #ffffff;
+}
+.pointer{
+  font-family: "Work Sans";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 1rem;
+  line-height: 24px;
+  color: white;
+  padding: 8px !important;
+  text-decoration: none;
+  padding-top: 0rem !important;
+  cursor: pointer;
+  padding-bottom: 0px !important;
+}
+.pointer:hover{
+  color: white;
+}
+
+@media screen and (max-width:768px) {
+  .middle-content{
+    padding-top: 1rem !important;
+  }
 }
