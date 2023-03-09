@@ -19,6 +19,16 @@
 .blog-card-top {
   max-width: 18rem;
   cursor: grab;
+  // border-top-right-radius: 2rem;
+  // border-bottom-left-radius: 2rem;
+  margin-bottom: 2rem;
+}
+.blog-body-div{
+  display: flex;
+  align-items: center;
+  p{
+    margin-bottom: 0 !important;
+  }
 }
 
 .blog-img {
@@ -32,4 +42,7 @@
   -webkit-line-clamp: 1;
   -webkit-box-orient: vertical;
   overflow: hidden;
+}
+.blog-desc:hover{
+  -webkit-line-clamp: 5;
 }

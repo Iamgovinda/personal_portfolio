@@ -201,6 +201,68 @@
   align-items: center;
   gap: 10px;
 }
+
+
+.heading{
+  font-weight: 700;
+  margin-bottom: 1rem !important;
+  color: var(--font-headings) !important;
+}
+
+.tab{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  margin-left: 2rem;
+
+}
+.btn{
+  border-radius: 3px !important;
+  height: 3rem;
+  background-color: var(--primary) !important;
+  border:none;
+  font-family: var(--font-family);
+  font-style: normal;
+  font-weight: 600;
+  font-size: 1rem;
+  color: white !important;
+  
+}
+.btn:active{
+  background-color: black;
+}
+
+.btn-2{
+  @extend .btn;
+  margin-right: 19rem;
+}
+.btn-1{
+  @extend .btn;
+}
+.btn-2-ex{
+  @extend .btn;
+  margin-right: 19rem;
+  background-color: gray !important;
+  color: black !important;
+  height: 2.5rem;
+}
+.btn-1-ex{
+  @extend .btn;
+  background-color: gray !important;
+  color: black !important;
+  height: 2.5rem;
+
+}
+
+
+// .btn-2:active{
+//   background-color: black !important;
+// }
+
+.btn-color{
+  background-color: white;
+}
 @media screen and (max-width: 500px) {
   .skill-box{
     height: 13rem;
@@ -226,6 +288,14 @@
   .certificate-id{
     font-size: 0.6rem;
   }
+  .btn-2, .btn-2-ex{
+    margin-right: 2rem;
+  }
 
 }
+@media screen and (max-width:768px) {
+.tab{
+  justify-content: flex-start;
+}
 
+}

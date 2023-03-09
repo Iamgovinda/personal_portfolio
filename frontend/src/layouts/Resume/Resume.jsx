@@ -1,6 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import styles from "./Resume.module.scss";
-import { Row, Col, Container } from "react-bootstrap";
+import { Row, Col, Container, Button } from "react-bootstrap";
+import { Timeline, TimelineItem } from 'vertical-timeline-component-for-react';
+
+// import { Chrono } from 'react-chrono';
 
 import {
     CircularProgressbar,
@@ -8,21 +11,46 @@ import {
 } from "react-circular-progressbar";
 import "react-circular-progressbar/dist/styles.css";
 
+
+
+
 const Resume = (props) => {
+    const [tab, setTab] = useState('education');
+    // const [bgColor, setBgColor] = useState("#a53dff");
+    // const items = [{
+    //     title: "May 1940",
+    //     cardTitle: "Dunkirk",
+    //     url: "http://www.history.com",
+    //     cardSubtitle: "Men of the British Expeditionary Force (BEF) wade out to..",
+    //     cardDetailedText: "Men of the British Expeditionary Force (BEF) wade out to..",
+    //     media: {
+    //         type: "IMAGE",
+    //         source: {
+    //             url: "http://someurl/image.jpg"
+    //         }
+    //     }
+    // }];
+    const handleChange1 = () =>{
+        setTab('education');
+    }
+
+    const handleChange2 = () =>{
+        setTab('experience');
+    }
 
     return (
         <>
             <Container className={styles["container-parent"]} id="resume">
                 <p className={styles["resume-title"]}>Resume</p>
                 <hr />
-                <Row className={styles["r-row"]}>
+                {/* <Row className={styles["r-row"]}>
                     <Col lg={6} className={styles["r-column-left"]}>
                         <p className={styles["education"]}>Education</p>
                         {props?.data?.education?.map((item) => {
                             return (
                                 <>
                                     <div className={styles["timeline-item"]}>
-                                        <h5 className={styles["time-period"]}>{item?.end_date}</h5>
+                                        <h5 className={styles["time-period"]}>{item?.period}</h5>
                                         <span className={styles["item-company"]}>
                                             {item?.title} , {item?.institute_name}
                                         </span>
@@ -38,7 +66,7 @@ const Resume = (props) => {
                             return (
                                 <>
                                     <div className={styles["timeline-item"]} key={index}>
-                                        <h5 className={styles["time-period"]}>{item?.end_date}</h5>
+                                        <h5 className={styles["time-period"]}>{item?.period}</h5>
                                         <span className={styles["item-company"]}>
                                         {item?.title} , {item?.company_name}
                                         </span>
@@ -50,8 +78,134 @@ const Resume = (props) => {
                             );
                         })}
                     </Col>
-                </Row>
+                </Row> */}
+                {/* <Row className={styles["r-row"]}>
+                    <Col lg={6} className={styles["r-column-left"]}>
+                        <p className={styles["education"]}>Education</p>
+                        <Timeline lineColor={'#ddd'}>
+                            {
+                                props?.data?.education?.map((item) => {
+                                    return (
+                                        <>
+                                            <TimelineItem
+                                                key="002"
+                                                dateText={item?.period}
+                                                dateInnerStyle={{ background: '#a53dff', color: '#000' }}
+                                                bodyContainerStyle={{
+                                                    background: '#ddd',
+                                                    padding: '20px',
+                                                    borderRadius: '8px',
+                                                    boxShadow: '0.5rem 0.5rem 2rem 0 rgba(0, 0, 0, 0.2)',
+                                                }}
+                                            >
+                                                <h3 style={{ color: '#61b8ff' }}>{item?.title} , {item?.institute_name}</h3>
+                                                <p>
+                                                    {item?.description}
+                                                </p>
+                                            </TimelineItem>
+                                        </>
+                                    )
+                                })
+                            }
+                        </Timeline>
+                    </Col>
+                    <Col lg={6} className={styles["r-column-right"]}>
+                        <p className={styles["education"]}>Experience</p>
+                        <Timeline lineColor={'#ddd'}>
+                            {
+                                props?.data?.education?.map((item) => {
+                                    return (
+                                        <>
+                                            <TimelineItem
+                                                key="002"
+                                                dateText={item?.period}
+                                                // dateInnerStyle={{ background: 'white', color: 'black', left:'32px' }}
+                                                bodyContainerStyle={{
+                                                    // background: '#ddd',
+                                                    // padding: '20px',
+                                                    // borderRadius: '8px',
+                                                    // boxShadow: '0.5rem 0.5rem 2rem 0 rgba(0, 0, 0, 0.2)',
+                                                }}
+                                                dateComponent={<dateComp dateText={"jdsf"}/>}
+                                            >
+                                                <h3 style={{ color: '#61b8ff' }}>{item?.title} , {item?.institute_name}</h3>
+                                                <p>
+                                                    {/* {item?.description} */}
+                {/* </p>
+                                            </TimelineItem>
+                                        </>
+                                    )
+                                })
+                            }
+                        </Timeline>
+                    </Col>
+                </Row> */}
+                <div className={styles['tab']}>
+                    <Button className={(tab==='education') ? `${styles['btn-1']}`: `${styles['btn-1-ex']}`} onClick={handleChange1}>My Educations</Button>
+                    <Button className={(tab==='experience') ? `${styles['btn-2']}`: `${styles['btn-2-ex']}`} onClick={handleChange2}>My Experiences</Button>
+                </div>
+                {
+                    (tab === 'education') ? (
+                        <>
+                            <Timeline lineColor={'#ddd'} >
+                                {
+                                    props?.data?.education?.map((item) => {
+                                        return (
+                                            <>
+                                                <TimelineItem
+                                                    key="002"
+                                                    dateText={item?.period}
+                                                    dateInnerStyle={{ background: '#F0F1F3', color: '#132238', border: 'none !important' }}
+                                                    bodyContainerStyle={{
+                                                        background: '#ddd',
+                                                        padding: '20px',
+                                                        borderRadius: '8px',
+                                                        boxShadow: '0.5rem 0.5rem 2rem 0 rgba(0, 0, 0, 0.2)',
+                                                    }}
+                                                >
+                                                    <h3 style={{ color: '#61b8ff' }} className={styles['heading']}>{item?.title} , {item?.institute_name}</h3>
+                                                    <p className={styles['dsc']}>
+                                                        {item?.description}
+                                                    </p>
+                                                </TimelineItem>
+                                            </>
+                                        )
+                                    })
+                                }
+                            </Timeline>
+                        </>
+                    ) : (
+                        <>
+                            <Timeline lineColor={'#ddd'} >
+                                {
+                                    props?.data?.experience?.map((item) => {
+                                        return (
+                                            <>
+                                                <TimelineItem
+                                                    key="002"
+                                                    dateText={item?.period}
+                                                    dateInnerStyle={{ background: '#F0F1F3', color: '#132238', border: 'none !important' }}
+                                                    bodyContainerStyle={{
+                                                        background: '#ddd',
+                                                        padding: '20px',
+                                                        borderRadius: '8px',
+                                                        boxShadow: '0.5rem 0.5rem 2rem 0 rgba(0, 0, 0, 0.2)',
+                                                    }}
+                                                >
+                                                    <h3 style={{ color: '#61b8ff' }} className={styles['heading']}>{item?.title} , {item?.company_name}</h3>
+                                                    <p className={styles['dsc']}>
+                                                        {item?.description}
+                                                    </p>
+                                                </TimelineItem>
+                                            </>
+                                        )
+                                    })
+                                }
+                            </Timeline>
 
+                        </>
+                    )
+                }
                 <p className={styles["certificate"]}>Certificates</p>
                 <Row>
                     {
@@ -68,7 +222,7 @@ const Resume = (props) => {
                                             {/* <img src="https://www.sololearn.com/Certificate/CT-BEND7IBK/jpg" alt="certi-img"/> */}
                                             <div className={styles["cert-img-box"]}>
                                                 <img
-                                                    src={item?.image?.file}
+                                                    src={item?.link}
                                                     alt="certi-img"
                                                     className={styles["cert-img"]}
                                                 />

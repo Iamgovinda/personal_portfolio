@@ -24,7 +24,9 @@ const BlogView = (props) => {
         <h1 className={styles["top"]}>
           {blog?.title}
         </h1>
-        <p className={styles['blog-info']}><Icon icon="arcticons:writeilypro" style={{ fontSize: '1.2rem', fontWeight: 'bold' }} /> {blog?.written_by + ' | ' + blog?.publish_date}</p>
+        <hr />
+        <p className={styles['blog-info']}><Icon icon="mdi:fountain-pen-tip"  style={{ fontSize: '1.6rem', fontWeight: 'bold' }} /> {blog?.written_by + ' | ' + blog?.publish_date}</p>
+        <hr />
         <div className={styles["content"]}>
           <Output data={blogData ?? "dfsk"} className={styles['output']} />
         </div>

@@ -8,6 +8,7 @@ import "slick-carousel/slick/slick-theme.css";
 import BlogCard from '../../components/BlogCard/BlogCard';
 import { get } from '../../API/axios';
 import { Link } from 'react-router-dom';
+import { Icon } from '@iconify/react';
 
 
 const BlogLayout = () => {
@@ -24,23 +25,24 @@ const BlogLayout = () => {
         }
     }, [isLoading])
     const settings = {
-        dots: true,
-        infinite: false,
-        speed: 250,
+        dots: false,
+        infinite: true,
         slidesToShow: 4,
         slidesToScroll: 1,
         initialSlide: 0,
+        nextArrow:true,
         autoplay: true,
-        speed: 10000,
-        autoplaySpeed: 10000,
-        cssEase: "linear",
-        pauseOnHover: true,
+        speed: 3000,
+        autoplaySpeed: 3000,
+        nextArrow: <Icon icon="material-symbols:arrow-circle-right" color='#132238' fontSize={'lg'}/>,
+        prevArrow: <Icon icon="material-symbols:arrow-circle-left-sharp" color='#132238' fontSize={'lg'}/>,
+
         responsive: [
             {
                 breakpoint: 1024,
                 settings: {
                     slidesToShow: 3,
-                    slidesToScroll: 2,
+                    slidesToScroll: 1,
                     infinite: true,
                     dots: true
                 }

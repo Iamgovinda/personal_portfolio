@@ -72,6 +72,26 @@
     font-size: 5rem;
     color: gray;
 }
+.initials{
+    height: 5rem;
+    width: 5rem;
+    background-color: #a53dff;
+    border-radius: 50%;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  
+    font-family: "Poppins";
+    font-style: normal;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 56px;
+}
+
+.initials-text{
+    margin-bottom: 0rem !important;
+}
 @media screen and (max-width:768px) {
     .t-content{
         padding: 20px 15px 15px 50px;

@@ -17,7 +17,7 @@ const UserInfo1 = (props) => {
                         <MyButton txt="Say Hello" email={props?.data[0]?.email} text='user info 1'/>
                        
                     </div>
-
+{/* 
                     <div className={styles['user-data-box']}>
                         <div style={{ padding: '10px' }} className={styles['user-data']}>
                             <div className={styles['user-data-common']}>
@@ -33,7 +33,7 @@ const UserInfo1 = (props) => {
                                 <p className={styles['user-text']}>Happy Clients</p>
                             </div>
                         </div>
-                    </div>
+                    </div> */}
                 </Col>
                 <Col md={5} lg={5} className={styles['col-right']}>
                     <img src={props?.data[0]?.main_image?.file ?? userImg} alt="user-img" className={styles['user-img']} />

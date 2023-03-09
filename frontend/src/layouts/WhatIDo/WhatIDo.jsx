@@ -18,7 +18,6 @@ const WhatIDo = (props) => {
     }
   }, [isLoading, whatIDo])
 
-  console.log(props?.email)
     return (
         <div className={styles['parent']}>
 
