@@ -77,14 +77,14 @@ export default function BasicModal(props) {
               <label htmlFor="title" className={styles['label']}>Title</label>
               <TextField id="outlined-required" placeholder='title' variant="outlined" fullWidth className={styles['text-field']} {...register('title', {required:'true'})} />
               <label htmlFor="title" className={styles['label']}>Thumbnail</label><br />
-              <input type="file" onChange={(e) => addFile(e)} />
+              <input type="file" onChange={(e) => addFile(e)} accept='image/*'/>
             </Box>
           </DialogContent>
           <DialogActions>
-            <Button autoFocus onClick={handleClose} variant='contained'>
+            <Button autoFocus onClick={handleClose} variant='contained' style={{backgroundColor:'red'}}>
               Cancel
             </Button>
-            <Button onClick={handleClose} type='submit' variant='contained'>
+            <Button onClick={handleClose} type='submit' variant='contained' style={{backgroundColor:'green'}}>
               Add Blog
             </Button>
           </DialogActions>

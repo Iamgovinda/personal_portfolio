@@ -27,6 +27,8 @@ import { useNavigate } from 'react-router-dom';
 import ExitToAppIcon from '@mui/icons-material/ExitToApp';
 import { removeToken } from '../utils/token';
 import { toast } from 'react-toastify';
+import LogConfirmationModal from '../components/Modal/LogOutModal';
+import { Tooltip } from '@mui/material';
 
 const drawerWidth = 240;
 
@@ -98,6 +100,7 @@ const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' 
 const MasterLayer = (props) => {
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
+  const [openLogOutModal, setOpenLogOutModal] = React.useState(false);
 
   const handleDrawerOpen = () => {
     setOpen(true);
@@ -106,8 +109,8 @@ const MasterLayer = (props) => {
   const handleDrawerClose = () => {
     setOpen(false);
   };
-  const handleLogout = () =>{
-    removeToken({name: 'token'});
+  const handleLogout = () => {
+    removeToken({ name: 'token' });
     navigate('/login');
     // window.location.reload();
     toast.success('logged out successfully');
@@ -138,7 +141,11 @@ const MasterLayer = (props) => {
               </Typography>
             </div>
             <Typography textAlign={'right'}>
-              <ExitToAppIcon style={{cursor:'pointer'}} onClick={handleLogout}/>
+              <Tooltip title="logout">
+                <IconButton>
+                  <ExitToAppIcon style={{ cursor: 'pointer' }} onClick={() => setOpenLogOutModal(true)} htmlColor='white'/>
+                </IconButton>
+              </Tooltip>
             </Typography>
           </Toolbar>
         </AppBar>
@@ -179,6 +186,14 @@ const MasterLayer = (props) => {
           <DrawerHeader />
           {props.children}
         </Box>
+        {
+          (openLogOutModal) && (
+            <>
+              <LogConfirmationModal open={openLogOutModal} setOpen={setOpenLogOutModal} handleLogout={handleLogout} />
+
+            </>
+          )
+        }
       </Box>
     </>
   )

@@ -1,8 +1,8 @@
 import React, {useState} from 'react';
-import { Button } from 'react-bootstrap';
 import styles from './MenuBar.module.scss';
 import { useNavigate } from 'react-router-dom';
 import BasicModal from '../Modal/Modal';
+import { Button } from '@mui/material';
 
 const MenuBar = (props) => {
   const navigate = new useNavigate();
@@ -11,7 +11,7 @@ const MenuBar = (props) => {
     <>
         <div className={styles['menu-bar']}>
             <p className={styles['title']}>Blogs</p>
-            <Button color='green' onClick={()=>setOpen(true)}>Add New Blog</Button>
+            <Button style={{backgroundColor:'green', color:'white'}} onClick={()=>setOpen(true)}>Add New Blog</Button>
         </div>
         <BasicModal open={open} setOpen={setOpen}/>
     </>

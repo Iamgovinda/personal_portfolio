@@ -15,6 +15,9 @@ import RemoveRedEyeOutlinedIcon from "@mui/icons-material/RemoveRedEyeOutlined";
 import { useNavigate } from "react-router-dom";
 import ViewBlog from "./ViewBlog";
 import { toast } from "react-toastify";
+import { Icon, Tooltip } from "@mui/material";
+import AreYouSure from "../Modal/AreYouSureModal";
+import { IconButton } from "@mui/material";
 function createData(name, calories, fat, carbs, protein) {
     return { name, calories, fat, carbs, protein };
 }
@@ -23,6 +26,7 @@ const BlogList = () => {
     const [open, setOpen] = React.useState(false);
     const [viewData, setViewData] = React.useState([]);
     const [blog, setBlog] = React.useState([]);
+    const [delModalOpen, setDelModalOpen] = React.useState(false);
 
     const [isLoading, setIsLoading] = React.useState(true);
     React.useEffect(() => {
@@ -51,10 +55,14 @@ const BlogList = () => {
             if (response.status === 204) {
                 toast.success("Blog Removed");
                 setIsLoading(!isLoading);
+                setDelModalOpen(false);
             }
         })
     }
-
+    const handleClickOpen = (row) => {
+        setDelModalOpen(true);
+        setBlog(row);
+    };
 
     return (
         <>
@@ -102,34 +110,62 @@ const BlogList = () => {
                                                 <TableCell className={styles["table-content"]}>
                                                     {row.content === null ? (
                                                         <>
-                                                            <AddCircleOutlineIcon
-                                                                fontSize="medium"
-                                                                style={{ Right: "3px", cursor: "pointer" }}
-                                                                onClick={() => navigate(`add-new-blog/${row.uuid}`)}
-                                                            />
-                                                            <DeleteOutlinedIcon
-                                                                fontSize="medium"
-                                                                style={{ Right: "3px", cursor: "pointer" }}
-                                                                onClick={() => handleDelete(row)}
-                                                            />
+                                                            <Tooltip title="Upload Blog">
+                                                                <IconButton>
+                                                                    <AddCircleOutlineIcon
+                                                                        fontSize="medium"
+                                                                        style={{ marginRight: "3px", cursor: "pointer" }}
+                                                                        onClick={() => navigate(`add-new-blog/${row.uuid}`)}
+                                                                        htmlColor="green"
+                                                                    />
+                                                                </IconButton>
+                                                            </Tooltip>
+                                                            <Tooltip title="Delete">
+                                                                <IconButton>
+                                                                    <DeleteOutlinedIcon
+                                                                        fontSize="medium"
+                                                                        style={{ marginRight: "3px", cursor: "pointer" }}
+                                                                        htmlColor="red"
+                                                                        onClick={() => handleClickOpen(row)}
+
+                                                                    />
+                                                                </IconButton>
+                                                            </Tooltip>
                                                         </>
                                                     ) : (
                                                         <>
-                                                            <RemoveRedEyeOutlinedIcon
-                                                                fontSize="medium"
-                                                                style={{ Right: "3px", cursor: "pointer" }}
-                                                                onClick={() => handleClick(row)}
-                                                            />{" "}
-                                                            <BorderColorOutlinedIcon
-                                                                fontSize="medium"
-                                                                style={{ Right: "3px", cursor: "pointer" }}
-                                                                onClick={() => navigate(`edit-blog/${row.uuid}`)}
-                                                            />{" "}
-                                                            <DeleteOutlinedIcon
-                                                                fontSize="medium"
-                                                                style={{ Right: "3px", cursor: "pointer" }}
-                                                                onClick={() => handleDelete(row)}
-                                                            />
+                                                            <Tooltip title="View Blog">
+                                                                <IconButton>
+                                                                    <RemoveRedEyeOutlinedIcon
+                                                                        fontSize="medium"
+                                                                        style={{ marginRight: "3px", cursor: "pointer" }}
+                                                                        onClick={() => handleClick(row)}
+                                                                        htmlColor="blue"
+                                                                    />{" "}
+                                                                </IconButton>
+                                                            </Tooltip>
+
+                                                            <Tooltip title="OK" className="l">
+                                                                <IconButton>
+                                                                    <BorderColorOutlinedIcon
+                                                                        fontSize="medium"
+                                                                        style={{ marginRight: "3px", cursor: "pointer" }}
+                                                                        onClick={() => navigate(`edit-blog/${row.uuid}`)}
+                                                                        htmlColor="green"
+                                                                    />{" "}
+                                                                </IconButton>
+                                                            </Tooltip>
+                                                            <Tooltip title="Delete">
+                                                                <IconButton>
+                                                                    <DeleteOutlinedIcon
+                                                                        fontSize="medium"
+                                                                        style={{ marginRight: "3px", cursor: "pointer" }}
+                                                                        htmlColor="red"
+                                                                        onClick={() => handleClickOpen(row)}
+
+                                                                    />
+                                                                </IconButton>
+                                                            </Tooltip>
                                                         </>
                                                     )}
                                                 </TableCell>
@@ -146,6 +182,9 @@ const BlogList = () => {
                 )
             }            {
                 (viewData && blogData) && <ViewBlog data={viewData} open={open} setOpen={setOpen} blog={blog} />
+            }
+            {
+                (delModalOpen) && <AreYouSure open={delModalOpen} setOpen={setDelModalOpen} blog={blog} handleDelete={handleDelete} />
             }
 
         </>

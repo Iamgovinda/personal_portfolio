@@ -160,7 +160,6 @@ AUTHENTICATION_BACKENDS = (
         'django.contrib.auth.backends.ModelBackend',
     )
 
-BACKEND_URL = 'http://127.0.0.1:8000/'
 
 APP_HEADER_INFORMATION = {
     'APP_NAME': 'x-levelup-app-name',

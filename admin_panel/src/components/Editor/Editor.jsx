@@ -8,11 +8,10 @@ import { patch } from '../../API/axios';
 import { useNavigate } from "react-router-dom";
 import ImageTool from '@editorjs/image';
 import Table from '@editorjs/table';
-import styles from './Editor.module.scss';
 import CodeBox from '@bomdi/codebox';
 import { get } from '../../API/axios';
 import { toast } from "react-toastify";
-import './Editor.module.scss';
+import styles from './Editor.module.scss';
 import { Button } from "@mui/material";
 
 
@@ -163,10 +162,10 @@ function Editor(props) {
   }, [blogData]);
 
   return (<>
-    <h1>Enter the content</h1>
+    <h1 className={styles['blog-title']}>{props?.data?.title}</h1>
     <div id="editorjs" className={styles['editorjs']}>
     </div>
-    <Button onClick={handleSave} className={styles['save_btn']} variant="contained">Save</Button>
+    <Button onClick={handleSave} className={styles["save_btn"]} variant="contained">Update</Button>
   </>
   );
 }

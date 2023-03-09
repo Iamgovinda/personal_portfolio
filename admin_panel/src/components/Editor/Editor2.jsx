@@ -164,7 +164,6 @@ function Editor2(props) {
     <h1>Enter the content</h1>
     <div id="editorjs" className={styles['editorjs']}>
     </div>
-    <pre id="output"></pre>
     <Button onClick={handleSave} className={styles['save_btn']} variant="contained">Save</Button>
 
   </>

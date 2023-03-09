@@ -1,7 +1,7 @@
 .editorjs{
-    border: 1px solid black;
-    // display: flex;
-    // justify-content: space-around;
+    border: 3px solid green;
+    border-radius: 1rem;
+
 }
 .ce-toolbar{
     max-width: 100rem !important;
@@ -11,4 +11,11 @@
 }
 .save_btn{
     background-color: green !important;
+    margin-top: 2rem !important;
+}
+
+.blog-title{
+    font-weight: 700;
+    font-family: poppins;
+    color: black;
 }
