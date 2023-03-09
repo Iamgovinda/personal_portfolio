@@ -1,3 +1,4 @@
+from django.core.exceptions import ValidationError
 from django.db import models
 
 # Create your models here.
@@ -11,9 +12,14 @@ class Education(UUIDBaseModel):
     start_date = models.DateField()
     end_date = models.DateField()
     description = models.TextField()
+    still_studying = models.BooleanField(default=False)
 
     def __str__(self):
         return self.institute_name
+
+    def clean(self):
+        if self.start_date > self.end_date:
+            raise ValidationError("Start date cannot be greater than end date.")
 
 
 class Experience(UUIDBaseModel):
@@ -22,9 +28,14 @@ class Experience(UUIDBaseModel):
     start_date = models.DateField()
     end_date = models.DateField()
     description = models.TextField()
+    still_working = models.BooleanField(default=False)
 
     def __str__(self):
         return self.company_name
+
+    def clean(self):
+        if self.start_date > self.end_date:
+            raise ValidationError("Start date cannot be greater than end date.")
 
 
 class Certificate(UUIDBaseModel):
@@ -42,6 +53,7 @@ class Certificate(UUIDBaseModel):
 class Skill(UUIDBaseModel):
     title = models.CharField(max_length=150, null=True, blank=True)
     skill_rate = models.PositiveIntegerField()
+
     # type = models.CharField(choices=SKILL_TYPE, default=DESIGN, max_length=100)
 
     def __str__(self):

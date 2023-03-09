@@ -14,16 +14,17 @@ class ResumeViewSet(APIView):
 
     # serializer_class = ResumeSerializer
     def get(self, request, *args, **kwargs):
-        education_queryset = Education.objects.all()
-        experience_queryset = Experience.objects.all()
+        education_queryset = Education.objects.all().order_by('-start_date')
+        experience_queryset = Experience.objects.all().order_by('-start_date')
         certificate_queryset = Certificate.objects.all()
         design_queryset = Skill.objects.all()
         # coding_queryset = Skill.objects.filter(type=CODING)
 
         return Response(
             {
-                'education': EducationSerializer(education_queryset, many=True).data,
-                'experience': ExperienceSerializer(experience_queryset, many=True).data,
+                'education': EducationSerializer(education_queryset, many=True, context={'request': self.request}).data,
+                'experience': ExperienceSerializer(experience_queryset, many=True,
+                                                   context={'request': self.request}).data,
                 'certificate': CertificateSerializer(certificate_queryset, many=True,
                                                      context={'request': self.request}).data,
                 'skills': SkillSerializer(design_queryset, many=True).data,

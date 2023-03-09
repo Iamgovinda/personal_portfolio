@@ -11,11 +11,35 @@ class EducationSerializer(DynamicFieldsModelSerializer):
         model = Education
         fields = ['title', 'institute_name', 'start_date', 'end_date', 'description']
 
+    def get_fields(self):
+        fields = super(EducationSerializer, self).get_fields()
+        if self.context.get('request').method.lower() in ['get']:
+            fields['period'] = serializers.SerializerMethodField()
+        return fields
+
+    @staticmethod
+    def get_period(obj):
+        if obj.still_studying:
+            return f'{obj.start_date.year} - Now'
+        return f'{obj.start_date.year} - {obj.end_date.year}'
+
 
 class ExperienceSerializer(DynamicFieldsModelSerializer):
     class Meta:
         model = Experience
         fields = ['title', 'company_name', 'start_date', 'end_date', 'description']
+
+    def get_fields(self):
+        fields = super(ExperienceSerializer, self).get_fields()
+        if self.context.get('request').method.lower() in ['get']:
+            fields['period'] = serializers.SerializerMethodField()
+        return fields
+
+    @staticmethod
+    def get_period(obj):
+        if obj.still_working:
+            return f'{obj.start_date.year} - Now'
+        return f'{obj.start_date.year} - {obj.end_date.year}'
 
 
 class CertificateSerializer(DynamicFieldsModelSerializer):
