@@ -19,9 +19,10 @@ class EducationSerializer(DynamicFieldsModelSerializer):
 
     @staticmethod
     def get_period(obj):
+        from datetime import datetime
         if obj.still_studying:
-            return f'{obj.start_date.year} - Now'
-        return f'{obj.start_date.year} - {obj.end_date.year}'
+            return f'{datetime.strftime(obj.start_date, "%Y %b %d")} - Now'
+        return f'{datetime.strftime(obj.start_date, "%Y %b %d")} - {datetime.strftime(obj.end_date, "%Y %b %d")}'
 
 
 class ExperienceSerializer(DynamicFieldsModelSerializer):
@@ -37,9 +38,10 @@ class ExperienceSerializer(DynamicFieldsModelSerializer):
 
     @staticmethod
     def get_period(obj):
+        from datetime import datetime
         if obj.still_working:
-            return f'{obj.start_date.year} - Now'
-        return f'{obj.start_date.year} - {obj.end_date.year}'
+            return f'{datetime.strftime(obj.start_date, "%Y %b %d")} - Now'
+        return f'{datetime.strftime(obj.start_date, "%Y %b %d")} - {datetime.strftime(obj.end_date, "%Y %b %d")}'
 
 
 class CertificateSerializer(DynamicFieldsModelSerializer):

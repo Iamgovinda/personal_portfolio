@@ -21,6 +21,7 @@ INSTALLED_APPS = [
     'corsheaders',
     'rest_framework.authtoken',
     'knox',
+    'django_extensions',
 
     # LOCAL APPS
     'portfolio.commons',
