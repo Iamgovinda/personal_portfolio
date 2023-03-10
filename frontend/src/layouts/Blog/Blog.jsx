@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import Slider from 'react-slick';
 
 import { Container } from 'react-bootstrap';
-import styles from './BlogLayout.scss';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import BlogCard from '../../components/BlogCard/BlogCard';
@@ -27,7 +26,7 @@ const BlogLayout = () => {
     }, [isLoading])
     const settings = {
         dots: false,
-        infinite: true,
+        infinite: blog?.length > 4,
         slidesToShow: 4,
         slidesToScroll: 1,
         initialSlide: 0,

@@ -252,7 +252,7 @@ const Resume = (props) => {
                     <p className={styles["skills"]}>Skills</p>
                     {
                         props?.data?.skills?.map((item, index) => {
-                            return <Col lg={3} md={6} sm={6} key={index}>
+                            return <Col lg={3} md={6} sm={6} xs={6} key={index}>
                                 <div className={styles["skill-box"]}>
                                     <CircularProgressbar value={item?.skill_rate} text={`${item?.skill_rate}%`} backgroundPadding={0} styles={buildStyles({
                                         pathColor: '#250994',

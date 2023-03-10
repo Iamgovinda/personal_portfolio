@@ -3,7 +3,6 @@ import React from 'react';
 import Card from 'react-bootstrap/Card';
 import styles from './BlogCard.module.scss';
 import { useNavigate } from 'react-router-dom';
-import { Icon } from '@iconify/react';
 
 const BlogCard = (props) => {
   const navigate = useNavigate();

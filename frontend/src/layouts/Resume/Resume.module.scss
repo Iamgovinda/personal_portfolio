@@ -266,7 +266,7 @@
 @media screen and (max-width: 500px) {
   .skill-box{
     height: 8rem;
-    margin-left: 3rem;
+    margin-left: -1rem;
   }
 }
 .skill-name{
@@ -297,6 +297,7 @@
 @media screen and (max-width:768px) {
 .tab{
   justify-content: flex-start;
+  margin-left: 0 !important;
 }
 
 }

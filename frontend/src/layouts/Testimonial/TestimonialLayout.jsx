@@ -13,7 +13,7 @@ import { Icon } from '@iconify/react';
 const TestimonialLayout = (props) => {
     const settings = {
         dots: false,
-        infinite: true,
+        infinite: props?.data?.length > 2,
         slidesToShow: 2,
         slidesToScroll: 1,
         initialSlide: 0,
