@@ -2,13 +2,14 @@ import React, { useState, useEffect } from 'react';
 import Slider from 'react-slick';
 
 import { Container } from 'react-bootstrap';
-import styles from './BlogLayout.module.scss';
+import styles from './BlogLayout.scss';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import BlogCard from '../../components/BlogCard/BlogCard';
 import { get } from '../../API/axios';
 import { Link } from 'react-router-dom';
 import { Icon } from '@iconify/react';
+import './BlogLayout.scss';
 
 
 const BlogLayout = () => {
@@ -30,12 +31,12 @@ const BlogLayout = () => {
         slidesToShow: 4,
         slidesToScroll: 1,
         initialSlide: 0,
-        nextArrow:true,
         autoplay: true,
-        speed: 3000,
+        speed: 500,
+        // centerMode:true,
         autoplaySpeed: 3000,
-        nextArrow: <Icon icon="material-symbols:arrow-circle-right" color='#132238' fontSize={'lg'}/>,
-        prevArrow: <Icon icon="material-symbols:arrow-circle-left-sharp" color='#132238' fontSize={'lg'}/>,
+        nextArrow: <Icon icon="material-symbols:arrow-circle-right" color='#132238' fontSize={'lg'} />,
+        prevArrow: <Icon icon="material-symbols:arrow-circle-left-sharp" color='#132238' fontSize={'lg'} />,
 
         responsive: [
             {
@@ -65,25 +66,25 @@ const BlogLayout = () => {
         ]
     };
     return (
-        <Container id='blog' className={styles['blog']}>
+        <Container id='blog' className='blog'>
             {
                 (blog && blog.length > 0) && (<>
-                    <div className={styles['blog-title']}>
+                    <div className='blog-title'>
                         <p>Blog</p>
                         {
-                            (blog?.length>4) && <Link className={styles['view-all']} to='/all-blogs'>view all</Link>
+                            (blog?.length > 4) && <Link className={'view-all'} to='/all-blogs'>view all</Link>
                         }
                     </div>
                     <Slider {...settings}>
-                        {
-                            blog?.map((item, index) => {
-                                return (
-                                    <>
-                                        <BlogCard key={index} data={item} />
-                                    </>
-                                )
-                            })
-                        }
+                            {
+                                blog?.map((item, index) => {
+                                    return (
+                                        <>
+                                            <BlogCard key={index} data={item} />
+                                        </>
+                                    )
+                                })
+                            }
                     </Slider>
                 </>)
             }

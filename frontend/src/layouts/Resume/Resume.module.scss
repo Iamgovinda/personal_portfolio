@@ -189,8 +189,8 @@
   margin-bottom: 1rem;
 }
 .skill-per-box{
-  display: flex;
-  justify-content: space-between;
+  // display: flex;
+  // justify-content: space-between;
 }
 
 .skill-box{
@@ -265,7 +265,7 @@
 }
 @media screen and (max-width: 500px) {
   .skill-box{
-    height: 13rem;
+    height: 8rem;
     margin-left: 3rem;
   }
 }
@@ -274,6 +274,7 @@
   font-weight: 600;
   font-family: var(--font-family);
   font-size: large;
+  text-align: center;
 }
 @media screen and (max-width:768px) {
   .container-parent{

@@ -55,7 +55,6 @@ const Login = () => {
                 }
             })
             .catch((err) => {
-                console.log(err)
                 if (err.data.code === "UNAUTHED") {
                     // setShowOtpModal(true);
                     toast.error("Your account is not activated.");

@@ -27,3 +27,25 @@
   color: #a53dff;
 
 }
+
+// .slick-prev::before{
+//   color: black !important;
+// }
+// .slick-next::before{
+//   color: black !important;
+// }
+// .slick-slide{
+//   width: 375px !important;
+// }
+
+@media screen and (max-width: 600px) {
+  .slick-slider{
+    margin: 0 2rem;
+  }
+}
+
+.content-container{
+  // display: flex;
+  // justify-content: center;
+  // flex-direction: row;
+}
