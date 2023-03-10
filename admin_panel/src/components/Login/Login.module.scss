@@ -2,8 +2,6 @@
     position: absolute;
     top: 30%;
     left: 50%;
-    // -moz-transform: translateX(-50%) translateY(-50%);
-    // -webkit-transform: translateX(-50%) translateY(-50%);
     transform: translateX(-50%) translateY(-80%);
     border: 1px solid gray;
     border-radius: 0rem 0rem 1rem 1rem;
@@ -21,4 +19,9 @@
 }
 .login-fields{
     padding: 0.3rem 1rem;
+}
+@media screen and (max-width: 600px){
+    .login-box{
+        margin-top: 5rem !important;
+    }
 }

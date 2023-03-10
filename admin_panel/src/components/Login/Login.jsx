@@ -1,12 +1,10 @@
 import React from 'react';
 import { useForm } from "react-hook-form";
-import { yupResolver } from "@hookform/resolvers/yup";
 import { useNavigate } from 'react-router-dom';
 import { useUserContext } from '../../context/UserContext';
 import { getToken, setToken } from '../../utils/token';
-import { Container } from '@mui/material';
 import styles from './Login.module.scss';
-import { FormControl, Input, InputLabel, FormHelperText, Button } from '@mui/material';
+import {InputLabel, Button } from '@mui/material';
 import TextField from '@mui/material/TextField';
 import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
