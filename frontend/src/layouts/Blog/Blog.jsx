@@ -32,7 +32,7 @@ const BlogLayout = () => {
         initialSlide: 0,
         autoplay: true,
         speed: 500,
-        // centerMode:true,
+        centerMode:true,
         autoplaySpeed: 3000,
         nextArrow: <Icon icon="material-symbols:arrow-circle-right" color='#132238' fontSize={'lg'} />,
         prevArrow: <Icon icon="material-symbols:arrow-circle-left-sharp" color='#132238' fontSize={'lg'} />,

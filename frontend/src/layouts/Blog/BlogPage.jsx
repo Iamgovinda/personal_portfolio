@@ -6,6 +6,8 @@ import BlogCard from "../../components/BlogCard/BlogCard";
 import { useUserContext } from "../../context/UserContext";
 import { Icon } from '@iconify/react';
 import InfiniteScroll from 'react-infinite-scroll-component';
+import Skeleton from 'react-loading-skeleton'
+import 'react-loading-skeleton/dist/skeleton.css'
 
 const BlogPage = () => {
     const [blog, setBlog] = useState([]);
@@ -65,9 +67,8 @@ const BlogPage = () => {
     }
 
     const fetchData = () => {
-        setOffset(offset+10);
         // console.log("Now filter: ", filters);
-        get(`/blog`, {limit:limit, offset:offset+10}).then((response) => {
+        get(`/blog`, {limit:limit, offset:offset+1}).then((response) => {
             if (response.status === 200) {
                 setBlog([...blog, ...response.data?.results]);
             }
@@ -109,7 +110,7 @@ const BlogPage = () => {
                         dataLength={blog.length} //This is important field to render the next data
                         next={fetchData}
                         hasMore={blog.length < count}
-                        loader={<h4>Loading...</h4>}
+                        loader={<h4><Skeleton count={5} /></h4>}
                         scrollableTarget="scrollableDiv"
                         style={{overflow: 'hidden'}}
                     >

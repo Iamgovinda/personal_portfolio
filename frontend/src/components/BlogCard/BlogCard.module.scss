@@ -23,10 +23,10 @@
   // border-bottom-left-radius: 2rem;
   margin-bottom: 2rem;
 }
-.blog-body-div{
+.blog-body-div {
   display: flex;
   align-items: center;
-  p{
+  p {
     margin-bottom: 0 !important;
   }
 }
@@ -43,6 +43,12 @@
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
-.blog-desc:hover{
+.blog-desc:hover {
   -webkit-line-clamp: 5;
+}
+.btn, .btn:hover, .btn:active {
+  background-color: var(--primary);
+  border: none;
+  margin-top: 0.5rem;
+  cursor: pointer;
 }

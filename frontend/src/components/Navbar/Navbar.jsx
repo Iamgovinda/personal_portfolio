@@ -15,8 +15,8 @@ const NavigationBar = (props) => {
       <Navbar style={{backgroundColor:'#FFFFFF'}} expand="lg">
         <Container>
           <Navbar.Brand href="/" className="d-flex gap-3 align-items-center">
-            <div className={styles["logo"]}>{props?.user?.name?.split(" ").map((word => word[0])).join("")}</div>
-            <p className={styles['brooklyn']}>{props?.user?.name}</p>
+            <div className={styles["logo"]}>{props?.user?.name?.split(" ").map((word => word[0])).join("") ?? 'JD'}</div>
+            <p className={styles['brooklyn']}>{props?.user?.name ?? 'John Doe'}</p>
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">

@@ -64,7 +64,7 @@ const Home = () => {
   return (
     <>
       <div className={styles["parent"]}>
-        <UserInfo1 data={userInfo} about={userAbout}/>
+        <UserInfo1 data={userInfo} about={userAbout} loading={isLoading}/>
         <div className={styles["blur"]}></div>
         <div className={styles["blur2"]}></div>
         <div className={styles["blur3"]}></div>
