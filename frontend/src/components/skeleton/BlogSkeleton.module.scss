@@ -1,0 +1,58 @@
+.blog-skeleton {
+  margin-top: 1rem;
+}
+.blog-title {
+  color: #132238;
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+  text-align: center;
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 2rem;
+  line-height: 56px;
+  margin-bottom: 10px;
+  position: relative;
+}
+
+.blog {
+  margin-bottom: 2rem;
+}
+.blog-info{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+.view-all,
+.view-all:hover {
+  font-size: 1rem;
+  text-decoration: underline;
+  position: absolute;
+  top: 0;
+  right: 3%;
+  color: #a53dff;
+}
+
+// .slick-prev::before{
+//   color: black !important;
+// }
+// .slick-next::before{
+//   color: black !important;
+// }
+// .slick-slide{
+//   width: 375px !important;
+// }
+
+@media screen and (max-width: 600px) {
+  .slick-slider {
+    margin: 0 2rem;
+  }
+}
+
+.content-container {
+  // display: flex;
+  // justify-content: center;
+  // flex-direction: row;
+}

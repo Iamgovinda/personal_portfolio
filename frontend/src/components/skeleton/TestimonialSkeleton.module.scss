@@ -1,0 +1,16 @@
+.t-skeleton{
+    padding: 1.5rem 2rem;
+    border: 1px solid #444;
+    border-radius: 1rem;
+    background-color: var(--background);
+    position: relative;
+}
+
+.t-image{
+    height: 3rem;
+    width: 3rem;
+    border-radius: 50%;
+    position: absolute;
+    top: -1rem;
+    left: -1rem;
+}

@@ -70,9 +70,9 @@ const Home = () => {
         <div className={styles["blur3"]}></div>
       </div>
       <WhatIDo email={userInfo[0]?.email}/>
-      <Resume data={resume}/>
-      <BlogLayout />
-      <TestimonialLayout data={testimonial}/>
+      <Resume data={resume} loading={isLoading}/>
+      <BlogLayout loading={isLoading}/>
+      <TestimonialLayout data={testimonial} loading={isLoading}/>
       {
       client && <ClientLayout data={client}/>
       }

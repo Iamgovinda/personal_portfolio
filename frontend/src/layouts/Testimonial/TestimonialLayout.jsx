@@ -6,9 +6,13 @@ import styles from './TestimonialLayout.module.scss';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
+import Skeleton from "react-loading-skeleton";
+import "react-loading-skeleton/dist/skeleton.css";
+
 
 import Testimonial from '../../components/Testimonial/Testimonial';
 import { Icon } from '@iconify/react';
+import TestimonialSkeleton from '../../components/skeleton/TestimonialSkeleton';
 
 const TestimonialLayout = (props) => {
     const settings = {
@@ -20,8 +24,8 @@ const TestimonialLayout = (props) => {
         autoplay: true,
         speed: 500,
         autoplaySpeed: 3000,
-        nextArrow: <Icon icon="material-symbols:arrow-circle-right" color='#132238' fontSize={'lg'}/>,
-        prevArrow: <Icon icon="material-symbols:arrow-circle-left-sharp" color='#132238' fontSize={'lg'}/>,
+        nextArrow: <Icon icon="material-symbols:arrow-circle-right" color='#132238' fontSize={'lg'} />,
+        prevArrow: <Icon icon="material-symbols:arrow-circle-left-sharp" color='#132238' fontSize={'lg'} />,
         responsive: [
             {
                 breakpoint: 1024,
@@ -50,19 +54,31 @@ const TestimonialLayout = (props) => {
         ]
     };
     return (
-        <Container style={{marginBottom:'2rem'}}>
-            <div className={styles['t-title']}>Testimonial</div>
-            <Slider {...settings}>
-                {
-                    props?.data?.map((item, index) => {
-                        return (
-                            <>
-                                <Testimonial key={index} data={item}/>
-                            </>
-                        )
-                    })
-                }
-            </Slider>
+        <Container style={{ marginBottom: '3rem' }}>
+            {
+                (props?.loading) ? (
+                    <>
+                        <Skeleton width={'8rem'} height={'3rem'} />
+                        <hr />
+                        <TestimonialSkeleton />
+                    </>
+                ) : (
+                    <>
+                        <div className={styles['t-title']}>Testimonial</div>
+                        <Slider {...settings}>
+                            {
+                                props?.data?.map((item, index) => {
+                                    return (
+                                        <>
+                                            <Testimonial key={index} data={item} />
+                                        </>
+                                    )
+                                })
+                            }
+                        </Slider>
+                    </>
+                )
+            }
         </Container>
     )
 }

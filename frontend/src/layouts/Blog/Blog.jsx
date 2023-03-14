@@ -9,9 +9,12 @@ import { get } from '../../API/axios';
 import { Link } from 'react-router-dom';
 import { Icon } from '@iconify/react';
 import './BlogLayout.scss';
+import Skeleton from "react-loading-skeleton";
+import "react-loading-skeleton/dist/skeleton.css";
+import BlogSkeleton from '../../components/skeleton/BlogSkeleton';
 
 
-const BlogLayout = () => {
+const BlogLayout = (props) => {
     const [blog, setBlog] = useState();
     const [isLoading, setIsLoading] = useState(true);
     useEffect(() => {
@@ -32,7 +35,7 @@ const BlogLayout = () => {
         initialSlide: 0,
         autoplay: true,
         speed: 500,
-        centerMode:true,
+        centerMode: true,
         autoplaySpeed: 3000,
         nextArrow: <Icon icon="material-symbols:arrow-circle-right" color='#132238' fontSize={'lg'} />,
         prevArrow: <Icon icon="material-symbols:arrow-circle-left-sharp" color='#132238' fontSize={'lg'} />,
@@ -65,28 +68,52 @@ const BlogLayout = () => {
         ]
     };
     return (
-        <Container id='blog' className='blog'>
-            {
-                (blog && blog.length > 0) && (<>
-                    <div className='blog-title'>
-                        <p>Blog</p>
+        <Container id='blog' className='blog'>{
+            (props?.loading) ? (
+                <>
+                    <Skeleton width={'8rem'} height={'3rem'} />
+                    <hr />
+                    <BlogSkeleton />
+                    {/* <Slider {...settings}>
+                                    {
+                                        [1,2,3,4,5,6].map((item, index) => {
+                                            return (
+                                                <>
+                                                    <BlogSkeleton />
+                                                </>
+                                            )
+                                        })
+                                    }
+                                </Slider> */}
+                </>
+            ) :
+                (
+                    <>
+
                         {
-                            (blog?.length > 4) && <Link className={'view-all'} to='/all-blogs'>view all</Link>
+                            (blog && blog.length > 0) && (<>
+                                <div className='blog-title'>
+                                    <p>Blog</p>
+                                    {
+                                        (blog?.length > 4) && <Link className={'view-all'} to='/all-blogs'>view all</Link>
+                                    }
+                                </div>
+                                <Slider {...settings}>
+                                    {
+                                        blog?.map((item, index) => {
+                                            return (
+                                                <>
+                                                    <BlogCard key={index} data={item} />
+                                                </>
+                                            )
+                                        })
+                                    }
+                                </Slider>
+                            </>)
                         }
-                    </div>
-                    <Slider {...settings}>
-                            {
-                                blog?.map((item, index) => {
-                                    return (
-                                        <>
-                                            <BlogCard key={index} data={item} />
-                                        </>
-                                    )
-                                })
-                            }
-                    </Slider>
-                </>)
-            }
+                    </>
+                )
+        }
         </Container>
     )
 }

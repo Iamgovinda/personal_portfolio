@@ -18,6 +18,7 @@ const UserInfo1Skeleton = () => {
                         <Skeleton height={"400px"} style={{marginTop:'1rem', borderRadius:'1rem'}}/>
                     </Col>
                 </Row>
+
             </div>
 
         </>
