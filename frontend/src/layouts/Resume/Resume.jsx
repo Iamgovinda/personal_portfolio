@@ -43,7 +43,7 @@ const Resume = (props) => {
         <>
             <Container className={styles["container-parent"]} id="resume">
                 {
-                    (props?.is_loading) ? (
+                    (props?.loading) ? (
                         <>
                             <ResumeSkeleton />
                         </>
@@ -113,6 +113,7 @@ const Resume = (props) => {
                                                 })
                                             }
                                         </Timeline>
+                                        </>)}
                                         <p className={styles["certificate"]}>Certificates</p>
                                         <Row>
                                             {
@@ -174,10 +175,6 @@ const Resume = (props) => {
                                     </>
                                 )
                             }
-                        </>
-                    )
-                }
-
             </Container>
         </>
     );

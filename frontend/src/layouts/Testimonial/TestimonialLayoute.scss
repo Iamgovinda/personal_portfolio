@@ -50,3 +50,23 @@
   line-height: 56px;
   margin-bottom: 10px;
 }
+
+.slick-prev{
+  left: -1px !important;
+  height: 3rem;
+  width: 3rem;
+  border-radius: 50%;
+  z-index: 1;
+  color: black !important;
+  opacity: 0.5;
+}
+.slick-next{
+  // @extend .slick-prev;
+  right: 3px;
+  height: 3rem;
+  width: 3rem;
+  border-radius: 50%;
+  z-index: 1;
+  color: black !important;
+  opacity: 0.5;
+}

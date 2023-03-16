@@ -2,7 +2,7 @@ import React from 'react';
 import Slider from 'react-slick';
 
 import { Container } from 'react-bootstrap';
-import styles from './TestimonialLayout.module.scss';
+import './TestimonialLayoute.scss';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
@@ -24,8 +24,8 @@ const TestimonialLayout = (props) => {
         autoplay: true,
         speed: 500,
         autoplaySpeed: 3000,
-        nextArrow: <Icon icon="material-symbols:arrow-circle-right" color='#132238' fontSize={'lg'} />,
-        prevArrow: <Icon icon="material-symbols:arrow-circle-left-sharp" color='#132238' fontSize={'lg'} />,
+        nextArrow: <Icon icon="material-symbols:arrow-circle-right" color='#132238' fontSize={'lg'} style={{left:'-30px !important'}}/>,
+        prevArrow: <Icon icon="material-symbols:arrow-circle-left-sharp" color='#132238' fontSize={'lg'} style={{right:'-30px !important'}}/>,
         responsive: [
             {
                 breakpoint: 1024,
@@ -64,7 +64,7 @@ const TestimonialLayout = (props) => {
                     </>
                 ) : (
                     <>
-                        <div className={styles['t-title']}>Testimonial</div>
+                        <div className='t-title'>Testimonial</div>
                         <Slider {...settings}>
                             {
                                 props?.data?.map((item, index) => {

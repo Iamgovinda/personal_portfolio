@@ -8,12 +8,13 @@ import { Icon } from '@iconify/react';
 import InfiniteScroll from 'react-infinite-scroll-component';
 import Skeleton from 'react-loading-skeleton'
 import 'react-loading-skeleton/dist/skeleton.css'
+import BlogPageSkeleton from "../../components/skeleton/BlogPage";
 
 const BlogPage = () => {
     const [blog, setBlog] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
     const { user, setUserData } = useUserContext();
-    const [limit, setLimit] = useState(10);
+    const [limit, setLimit] = useState(3);
     const [offset, setOffset] = useState(0);
     const [count, setCount] = useState(0);
     // const [page, setPage] = React.useState(1);
@@ -68,7 +69,7 @@ const BlogPage = () => {
 
     const fetchData = () => {
         // console.log("Now filter: ", filters);
-        get(`/blog`, {limit:limit, offset:offset+1}).then((response) => {
+        get(`/blog`, { limit: limit, offset: offset + 1 }).then((response) => {
             if (response.status === 200) {
                 setBlog([...blog, ...response.data?.results]);
             }
@@ -77,55 +78,63 @@ const BlogPage = () => {
 
     return (
         <>
-                    
             <Container className={styles['container-parent']}>
-                <div className={styles['search-box-div']}>
-                    <p className={styles['text-1']}>All Blogs</p>
-                    <div className="searchbar">
-                        <InputGroup className="mb-3" size="lg">
-                            <InputGroup.Text id="basic-addon1"><Icon icon="ic:outline-search" /></InputGroup.Text>
-                            <Form.Control
-                                placeholder="Search Blog"
-                                aria-label="Search Blog"
-                                aria-describedby="basic-addon1"
-                                onChange={handleChange}
-                            />
-                        </InputGroup>
-                    </div>
-                </div>
-                {/* <Row>
-                    {
-                        blog?.map((item, index) => {
-                            return (
+                {
+                    (isLoading) ? (
+                        <>
+                            <Skeleton height={'4.5rem'} baseColor="white" borderRadius='0.8rem' />
+                        </>
+                    ) :
+                        (
+                            <>
+                                <div className={styles['search-box-div']}>
+                                    <p className={styles['text-1']}>All Blogs</p>
+                                    <div className="searchbar">
+                                        <InputGroup className="mb-3" size="lg">
+                                            <InputGroup.Text id="basic-addon1"><Icon icon="ic:outline-search" /></InputGroup.Text>
+                                            <Form.Control
+                                                placeholder="Search Blog"
+                                                aria-label="Search Blog"
+                                                aria-describedby="basic-addon1"
+                                                onChange={handleChange}
+                                            />
+                                        </InputGroup>
+                                    </div>
+                                </div>
+                            </>
+                        )
+                }
+                <InfiniteScroll
+                    dataLength={blog.length} //This is important field to render the next data
+                    next={fetchData}
+                    hasMore={blog.length < count}
+                    loader={<h4><BlogPageSkeleton /></h4>}
+                    scrollableTarget="scrollableDiv"
+                    style={{ overflow: 'hidden' }}
+                >
+                    <Row>
+                        {
+                            (isLoading) ? (
                                 <>
-                                    <Col sm={12} md={6} lg={3}><BlogCard data={item} key={index} /></Col>
+                                    <BlogPageSkeleton />
                                 </>
-                            )
-                        })
-                    }
-                </Row> */}
-
-
-                    <InfiniteScroll
-                        dataLength={blog.length} //This is important field to render the next data
-                        next={fetchData}
-                        hasMore={blog.length < count}
-                        loader={<h4><Skeleton count={5} /></h4>}
-                        scrollableTarget="scrollableDiv"
-                        style={{overflow: 'hidden'}}
-                    >
-                        <Row>
-                            {
-                                blog?.map((item, index) => {
-                                    return (
-                                        <>
-                                            <Col sm={12} md={6} lg={3} key={index}><BlogCard data={item} /></Col>
-                                        </>
-                                    )
-                                })
-                            }
-                        </Row>
-                    </InfiniteScroll>
+                            ) :
+                                (
+                                    <>
+                                        {
+                                            blog?.map((item, index) => {
+                                                return (
+                                                    <>
+                                                        <Col sm={12} md={6} lg={4} key={index}><BlogCard data={item} /></Col>
+                                                    </>
+                                                )
+                                            })
+                                        }
+                                    </>
+                                )
+                        }
+                    </Row>
+                </InfiniteScroll>
             </Container>
         </>
     )

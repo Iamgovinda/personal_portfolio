@@ -14,6 +14,28 @@ import "react-loading-skeleton/dist/skeleton.css";
 import BlogSkeleton from '../../components/skeleton/BlogSkeleton';
 
 
+
+function SampleNextArrow(props) {
+    const { className, style, onClick } = props;
+    return (
+      <div
+        className={className}
+        style={{ ...style, display: "block", background: "red" }}
+        onClick={onClick}
+      />
+    );
+  }
+  
+  function SamplePrevArrow(props) {
+    const { className, style, onClick } = props;
+    return (
+      <div
+        className={className}
+        style={{ ...style, display: "block", background: "green" }}
+        onClick={onClick}
+      />
+    );
+  }
 const BlogLayout = (props) => {
     const [blog, setBlog] = useState();
     const [isLoading, setIsLoading] = useState(true);
@@ -30,12 +52,12 @@ const BlogLayout = (props) => {
     const settings = {
         dots: false,
         infinite: blog?.length > 4,
-        slidesToShow: 4,
+        slidesToShow: 3,
         slidesToScroll: 1,
         initialSlide: 0,
         autoplay: true,
         speed: 500,
-        centerMode: true,
+        centerMode: false,
         autoplaySpeed: 3000,
         nextArrow: <Icon icon="material-symbols:arrow-circle-right" color='#132238' fontSize={'lg'} />,
         prevArrow: <Icon icon="material-symbols:arrow-circle-left-sharp" color='#132238' fontSize={'lg'} />,
@@ -47,7 +69,6 @@ const BlogLayout = (props) => {
                     slidesToShow: 3,
                     slidesToScroll: 1,
                     infinite: true,
-                    dots: true
                 }
             },
             {
@@ -74,17 +95,6 @@ const BlogLayout = (props) => {
                     <Skeleton width={'8rem'} height={'3rem'} />
                     <hr />
                     <BlogSkeleton />
-                    {/* <Slider {...settings}>
-                                    {
-                                        [1,2,3,4,5,6].map((item, index) => {
-                                            return (
-                                                <>
-                                                    <BlogSkeleton />
-                                                </>
-                                            )
-                                        })
-                                    }
-                                </Slider> */}
                 </>
             ) :
                 (

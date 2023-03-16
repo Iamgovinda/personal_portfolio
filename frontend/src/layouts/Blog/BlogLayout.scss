@@ -18,12 +18,21 @@
     margin-bottom: 2rem;
 }
 
+.icon-parent{
+  display: flex !important;
+  justify-content: center;
+  align-items: center;
+  height: 5rem;
+  width: 5rem;
+  border-radius: 50%;
+}
+
 .view-all, .view-all:hover{
   font-size: 1rem;
-  text-decoration: underline;
+  text-decoration: none;
   position: absolute;
   top: 0;
-  right: 3%;
+  right: 0;
   color: #a53dff;
 
 }
@@ -37,7 +46,25 @@
 // .slick-slide{
 //   width: 375px !important;
 // }
-
+.slick-prev{
+  left: -20px !important;
+  height: 3rem;
+  width: 3rem;
+  border-radius: 50%;
+  z-index: 1;
+  color: black !important;
+  opacity: 0.3;
+}
+.slick-next{
+  // @extend .slick-prev;
+  right: 3px;
+  height: 3rem;
+  width: 3rem;
+  border-radius: 50%;
+  z-index: 1;
+  color: black !important;
+  opacity: 0.3;
+}
 @media screen and (max-width: 600px) {
   .slick-slider{
     margin: 0 2rem;
