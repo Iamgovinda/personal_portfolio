@@ -25,7 +25,6 @@
 }
 .t-text{
     p{
-        font-style: italic;
         font-size: 1rem;
         color: var(--font-secondary);
         margin: 0 0 10px;
@@ -33,6 +32,7 @@
         text-overflow: ellipsis;
         overflow: hidden;
         display: -webkit-box;
+        font-family: 'work sans';
         -webkit-line-clamp: 6;
         -webkit-box-orient: vertical;
     }

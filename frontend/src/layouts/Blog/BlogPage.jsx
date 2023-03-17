@@ -14,7 +14,7 @@ const BlogPage = () => {
     const [blog, setBlog] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
     const { user, setUserData } = useUserContext();
-    const [limit, setLimit] = useState(3);
+    const [limit, setLimit] = useState();
     const [offset, setOffset] = useState(0);
     const [count, setCount] = useState(0);
     // const [page, setPage] = React.useState(1);
@@ -69,7 +69,7 @@ const BlogPage = () => {
 
     const fetchData = () => {
         // console.log("Now filter: ", filters);
-        get(`/blog`, { limit: limit, offset: offset + 1 }).then((response) => {
+        get(`/blog`, { limit: limit, offset: offset + 5 }).then((response) => {
             if (response.status === 200) {
                 setBlog([...blog, ...response.data?.results]);
             }
@@ -116,7 +116,7 @@ const BlogPage = () => {
                         {
                             (isLoading) ? (
                                 <>
-                                    <BlogPageSkeleton />
+                                    <BlogPageSkeleton count={3}/>
                                 </>
                             ) :
                                 (

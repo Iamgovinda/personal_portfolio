@@ -182,8 +182,10 @@
   font-weight: bold;
 }
 .certificate-id{
-  font-size: .9em;
+  font-size: 18px;
   color: #777;
+  font-family: 'work sans';
+
 }
 .skills{
   @extend .education;

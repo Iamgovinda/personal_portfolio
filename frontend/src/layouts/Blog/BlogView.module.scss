@@ -1,7 +1,13 @@
 .top {
   margin-top: 1rem;
-  font-family: cursive !important;
-  margin-bottom: 1rem;
+    /* font-family: cursive !important; */
+    margin-bottom: 1rem;
+    font-family: var(--font-family);
+    font-style: normal;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 100%;
+    color: var(--font-headings);
 }
 .container {
   background-color: #F0F1F3;
@@ -18,4 +24,12 @@
 
 .content {
 //   padding: 0 5rem;
+}
+
+.content{
+  font-family: "Work Sans";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 24px;
 }
